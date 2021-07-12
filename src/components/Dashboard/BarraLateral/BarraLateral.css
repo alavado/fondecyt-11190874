@@ -4,15 +4,34 @@
   padding: 1rem;
 }
 
-.BarraLateral__boton_imprimir {
-  margin-top: auto;
+.BarraLateral__logo {
+  width: 5rem;
+  margin-bottom: 1rem;
 }
 
 .BarraLateral__link {
   height: 2rem;
 }
 
-.BarraLateral__logo {
-  width: 5rem;
-  margin-bottom: 1rem;
+.BarraLateral__boton_imprimir {
+  margin-top: auto;
+}
+
+@media (orientation: portrait) {
+  .BarraLateral {
+    flex-direction: row;
+  }
+
+  .BarraLateral__link {
+    flex: 1;
+    text-align: center;
+  }
+
+  .BarraLateral__logo {
+    display: none;
+  }
+
+  .BarraLateral__boton_imprimir {
+    display: none;
+  }
 }

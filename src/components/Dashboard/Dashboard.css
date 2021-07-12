@@ -8,3 +8,9 @@
   flex: 1;
   padding: 1rem;
 }
+
+@media (orientation: portrait) {
+  .Dashboard {
+    flex-direction: column-reverse;
+  }
+}
