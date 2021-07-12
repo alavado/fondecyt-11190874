@@ -1,0 +1,18 @@
+.BarraLateral {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.BarraLateral__boton_imprimir {
+  margin-top: auto;
+}
+
+.BarraLateral__link {
+  height: 2rem;
+}
+
+.BarraLateral__logo {
+  width: 5rem;
+  margin-bottom: 1rem;
+}

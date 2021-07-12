@@ -1,0 +1,10 @@
+.Dashboard {
+  display: flex;
+  flex: 1;
+}
+
+.Dashboard__contenedor {
+  background-color: lightgoldenrodyellow;
+  flex: 1;
+  padding: 1rem;
+}
