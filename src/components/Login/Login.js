@@ -1,14 +1,20 @@
 import { useForm } from 'react-hook-form'
+import { useDispatch } from 'react-redux'
 import { login } from '../../helpers/api'
+import { guardaToken } from '../../redux/ducks/login'
 import './Login.css'
 
 const Login = () => {
   
   const { register, handleSubmit, formState: { errors } } = useForm()
+  const dispatch = useDispatch()
 
   const ingresar = ({ email, password }) => {
     login(email, password)
-      .then(res => console.log(res.headers))
+      .then(res => {
+        const { authorization: token } = res.headers
+        dispatch(guardaToken(token))
+      })
   }
 
   return (
