@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const apiRoot = 'https://tmb-fondecyt.herokuapp.com/api/'
+const apiRoot = 'https://tmb-fondecyt.herokuapp.com/api'
 
 export const login = (email, password) => {
   const url = `${apiRoot}/login`
@@ -10,6 +10,80 @@ export const login = (email, password) => {
     {
       headers: {
         'Content-Type': 'application/json'
+      }
+    }
+  )
+}
+
+export const statusPacienteActivo = 8
+
+export const pacientes = jwt => () => {
+  const url = `${apiRoot}/patients`
+  return axios.get(
+    url,
+    {
+      headers: {
+        'Authorization': jwt
+      }
+    }
+  )
+}
+
+export const paciente = (jwt, id) => () => {
+  const url = `${apiRoot}/patients/${id}`
+  return axios.get(
+    url,
+    {
+      headers: {
+        'Authorization': jwt
+      }
+    }
+  )
+}
+
+export const assist = (jwt, id) => () => {
+  const url = `${apiRoot}/patients/${id}/assist`
+  return axios.get(
+    url,
+    {
+      headers: {
+        'Authorization': jwt
+      }
+    }
+  )
+}
+
+export const audit = (jwt, id) => () => {
+  const url = `${apiRoot}/patients/${id}/audit`
+  return axios.get(
+    url,
+    {
+      headers: {
+        'Authorization': jwt
+      }
+    }
+  )
+}
+
+export const antecedentes = (jwt, id) => () => {
+  const url = `${apiRoot}/patients/${id}/antecedente`
+  return axios.get(
+    url,
+    {
+      headers: {
+        'Authorization': jwt
+      }
+    }
+  )
+}
+
+export const tlfb = (jwt, id) => () => {
+  const url = `${apiRoot}/patients/${id}/resumentlfb`
+  return axios.get(
+    url,
+    {
+      headers: {
+        'Authorization': jwt
       }
     }
   )

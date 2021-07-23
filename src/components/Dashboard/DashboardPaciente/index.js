@@ -1,0 +1,1 @@
+export { defautlt } from './DashboardPaciente'

@@ -1,12 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { Route, Switch } from 'react-router-dom'
-import BarraLateral from './BarraLateral'
-import Consumo from './Consumo'
-import Intoxicacion from './Intoxicacion'
-import Riesgos from './Riesgos'
 import Login from '../Login'
 import './Dashboard.css'
 import { borraToken } from '../../redux/ducks/login'
+import ListaPacientes from './ListaPacientes'
+import DashboardPaciente from './DashboardPaciente/DashboardPaciente'
 
 const Dashboard = () => {
 
@@ -20,20 +18,13 @@ const Dashboard = () => {
 
   return (
     <div className="Dashboard">
-      <BarraLateral />
       <div className="Dashboard__contenedor">
         <Switch>
-          <Route path="/consumo">
-            <Consumo />
-          </Route>
-          <Route path="/intoxicacion">
-            <Intoxicacion />
-          </Route>
-          <Route path="/riesgos">
-            <Riesgos />
+          <Route path="/paciente/:id">
+            <DashboardPaciente />
           </Route>
           <Route path="/">
-            <Consumo />
+            <ListaPacientes />
           </Route>
         </Switch>
       </div>
