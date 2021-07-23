@@ -8,15 +8,21 @@ const slice = createSlice({
     exp: undefined
   },
   reducers: {
-    guardaToken(state, token) {
+    guardaToken(state, action) {
+      const token = action.payload
       state.jwt = token
       state.exp = jwtDecode(token).exp
+    },
+    borraToken(state) {
+      state.jwt = undefined
+      state.exp = undefined
     }
   }
 })
 
 export const {
-  guardaToken
+  guardaToken,
+  borraToken
 } = slice.actions
 
 export default slice.reducer
