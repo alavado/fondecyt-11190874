@@ -25,7 +25,6 @@ const Consumo = () => {
 
   return (
     <div className="Consumo">
-      Consumo
       <p>Usted consume {t_semana_promedio} tragos estandar por semana</p>
       <p>Si lo comparamos con otras personas de su edad en Chile {percentil} de cada 100 personas consumen mas que usted</p>
       <p>Tragos maximos por semana {t_semana_max}</p>

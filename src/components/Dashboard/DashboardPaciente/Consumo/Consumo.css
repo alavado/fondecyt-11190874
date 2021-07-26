@@ -1,0 +1,11 @@
+.Consumo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.Consumo p {
+  border: 1px solid black;
+  padding: 1rem;
+  border-radius: 1rem;
+}
