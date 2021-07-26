@@ -56,3 +56,7 @@ a {
 	color: inherit;
 	text-decoration: inherit;
 }
+
+:root {
+  font-size: 1vmax;
+}

@@ -7,5 +7,8 @@
 .Consumo p {
   border: 1px solid black;
   padding: 1rem;
-  border-radius: 1rem;
+  min-height: 5rem;
+  display: flex;
+  align-items: center;
+  border-radius: .25rem;
 }

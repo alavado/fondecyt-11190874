@@ -23,7 +23,6 @@ const Riesgos = () => {
 
   return (
     <div className="Riesgos">
-      Riesgos
       <p>Tolerancia {calificacionTolerancia(tolerancia)}</p>
       <p>Marihuana {calificacionSustanciaAssist(datosAssist, 'c')}</p>
       <p>Cocaina {calificacionSustanciaAssist(datosAssist, 'd')}</p>

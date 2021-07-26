@@ -22,11 +22,10 @@ const Intoxicacion = () => {
 
   return (
     <div className="Intoxicacion">
-      Intoxicacion
       <p>Alcoholemia maxima estimada de {bac_max} mg% por semana</p>
       <p>Gramos de alcohol en un dia tipico de consumo {gdd}</p>
       <p>Alcoholemia promedio en un dia de consumo {bac_media}</p>
-      <p>Agregar tabla</p>
+      {/* <p>Agregar tabla</p> */}
     </div>
   )
 }
