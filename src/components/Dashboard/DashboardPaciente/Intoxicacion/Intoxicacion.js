@@ -14,6 +14,10 @@ const Intoxicacion = () => {
     return 'Cargando...'
   }
 
+  if (!data?.data?.data?.attributes) {
+    return 'Paciente no tiene datos'
+  }
+
   const {
     bac_max,
     bac_media,

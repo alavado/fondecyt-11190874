@@ -14,6 +14,10 @@ const Consumo = () => {
     return 'Cargando...'
   }
 
+  if (!data?.data?.data?.attributes) {
+    return 'Paciente no tiene datos'
+  }
+
   const {
     percentil,
     t_dia_max,

@@ -17,6 +17,10 @@ const Riesgos = () => {
     return 'Cargando...'
   }
 
+  if (!dataTlfb?.data?.data?.attributes || !dataAssist?.data?.data?.attributes || !dataAntecedentes?.data?.data?.attributes) {
+    return 'Paciente no tiene datos'
+  }
+
   const { tolerancia } = dataTlfb.data.data.attributes
   const datosAssist = dataAssist.data.data.attributes
   const datosAntecedentes = dataAntecedentes.data.data.attributes
