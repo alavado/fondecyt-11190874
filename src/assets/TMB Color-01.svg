@@ -20,7 +20,7 @@
 	</foreignObject>
 	<g i:extraneous="self">
 		<g>
-			<rect fill-rule="evenodd" clip-rule="evenodd" fill="#496183" width="360" height="359.999"/>
+			<rect fill-rule="evenodd" clip-rule="evenodd" fill="#00000000" width="360" height="359.999"/>
 			<g>
 				<g>
 					<path fill="#FFFFFF" d="M50.547,269.323h-3.762v-1.168h8.805v1.168h-3.762v10.036h-1.281V269.323z"/>

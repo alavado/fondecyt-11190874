@@ -59,4 +59,9 @@ a {
 
 :root {
   font-size: 1vmax;
+  font-family: 'Inter', sans-serif;
+	--color-texto: #1A202C;
+	--color-principal: #3182CE;
+	--color-fondo-central: white;
+  color: var(--color-texto);
 }

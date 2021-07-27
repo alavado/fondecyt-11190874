@@ -1,34 +1,80 @@
 .DashboardPaciente {
   display: flex;
   flex-direction: column;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.DashboardPaciente__contenedor {
+  background-color: var(--color-fondo-central);
+  box-shadow: 0 .75rem 1rem rgba(0, 0, 0, .15);
+  padding: 1rem;
+  max-height: calc(100vh - 11rem);
+  overflow: auto;
+}
+
+.DashboardPaciente__contenedor::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: .25rem;
+  background-color: var(--color-fondo-central);
+}
+
+.DashboardPaciente__contenedor::-webkit-scrollbar {
+  width: .5rem;
+  background-color: transparent;
+}
+
+.DashboardPaciente__contenedor::-webkit-scrollbar-thumb {
+  border-radius: .25rem;
+  box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  background-color: var(--color-principal);
 }
 
 .DashboardPaciente__superior {
   display: flex;
   gap: 1rem;
   align-items: center;
+  color: white;
 }
 
 .DashboardPaciente__logo {
-  width: 6rem;
+  width: 5rem;
 }
 
 .DashboardPaciente__titulo {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: bold;
 }
 
 .DashboardPaciente__navegacion {
   display: flex;
   justify-content: space-around;
+  background-color: white;
+  padding: 0 .5rem;
+  border-radius: .5rem .5rem 0 0;
 }
 
 .DashboardPaciente__link {
-  height: 3rem;
+  padding: .8rem 0;
   display: flex;
   align-items: center;
+  justify-content: center;
+  border-bottom: .15rem solid #e2e8f0;
+  color: var(--color-texto);
+  font-size: 1rem;
+  flex: 1;
+  transition: all .25s ease-in-out;
+}
+
+.DashboardPaciente__link:first-child {
+  border-top-left-radius: .5rem;
+}
+
+.DashboardPaciente__link:last-child {
+  border-top-right-radius: .5rem;
 }
 
 .DashboardPaciente__link--activo {
-  text-decoration: underline;
+  border-color: var(--color-principal);
+  color: var(--color-principal);
 }

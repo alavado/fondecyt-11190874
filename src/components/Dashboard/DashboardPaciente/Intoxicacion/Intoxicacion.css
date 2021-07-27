@@ -1,11 +1,11 @@
 .Intoxicacion {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 1rem;
+  place-items: center;
 }
 
 .Intoxicacion p {
-  border: 1px solid black;
   padding: 1rem;
   min-height: 5rem;
   display: flex;
