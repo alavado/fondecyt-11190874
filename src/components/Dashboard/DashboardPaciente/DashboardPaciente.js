@@ -3,7 +3,7 @@ import './DashboardPaciente.css'
 import Consumo from './Consumo'
 import Intoxicacion from './Intoxicacion'
 import Riesgos from './Riesgos'
-import logo from '../../../assets/TMB BN-03.png'
+import logo from '../../../assets/TMB BN-03.svg'
 
 const DashboardPaciente = () => {
 

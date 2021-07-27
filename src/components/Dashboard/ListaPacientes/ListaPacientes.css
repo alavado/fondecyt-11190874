@@ -1,0 +1,11 @@
+.ListaPacientes__titulo {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.ListaPacientes__elemento {
+  height: 3rem;
+  display: flex;
+  align-items: center;
+}

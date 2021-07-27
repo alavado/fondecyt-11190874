@@ -1,6 +1,4 @@
 .DashboardPaciente {
-  max-width: 1280px;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
 }
@@ -12,7 +10,7 @@
 }
 
 .DashboardPaciente__logo {
-  width: 5rem;
+  width: 6rem;
 }
 
 .DashboardPaciente__titulo {

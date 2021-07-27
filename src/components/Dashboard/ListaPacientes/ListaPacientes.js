@@ -18,14 +18,13 @@ const ListaPacientes = () => {
   }
 
   const pacientesActivos = data.data.data.filter(p => p.attributes.status === statusPacienteActivo)
-  console.log(pacientesActivos)
 
   return (
     <div className="ListaPacientes">
-      Pacientes en estudio
+      <h1 className="ListaPacientes__titulo">Pacientes en estudio</h1>
       {pacientesActivos.map(p => (
-        <div key={`fila-paciente-${p.id}`}>
-          <Link to={`/paciente/${p.id}`}>
+        <div className="ListaPacientes__elemento" key={`fila-paciente-${p.id}`}>
+          <Link to={`/paciente/${p.id}/consumo`}>
             {p.attributes.nombre}
           </Link>
         </div>
