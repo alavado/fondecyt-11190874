@@ -63,5 +63,6 @@ a {
 	--color-texto: #1A202C;
 	--color-principal: #3182CE;
 	--color-fondo-central: white;
+	--color-blanco: white;
   color: var(--color-texto);
 }

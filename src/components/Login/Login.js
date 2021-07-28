@@ -19,18 +19,18 @@ const Login = () => {
 
   return (
     <div className="Login">
-      <form onSubmit={handleSubmit(ingresar)} >
+      <form className="Login__formulario" onSubmit={handleSubmit(ingresar)} >
         <div className="Login__contenedor_campo">
-          <label htmlFor="email">email</label>
+          <label htmlFor="email">E-mail</label>
           <input {...register('email')} required={true} />
           {errors.usuarioRequired && <span>Este campo es necesario</span>}
         </div>
         <div className="Login__contenedor_campo">
           <label htmlFor="password">Contraseña</label>
-          <input {...register('password')} required={true} />
+          <input type="password" {...register('password')} required={true} />
           {errors.passwordRequired && <span>Este campo es necesario</span>}
         </div>
-        <button type="submit">Ingresar</button>
+        <button className="Login__boton" type="submit">Ingresar</button>
       </form>
     </div>
   )
