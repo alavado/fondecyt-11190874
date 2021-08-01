@@ -41,6 +41,20 @@
 
 .DashboardPaciente__contenedor_link_para_compartir {
   margin-left: auto;
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  gap: .5rem;
+  font-size: 1rem;
+}
+
+.DashboardPaciente__boton_copiar_link {
+  background: var(--color-principal);
+  border: none;
+  height: 100%;
+  color: var(--color-blanco);
+  cursor: pointer;
+  border-radius: .25rem;
 }
 
 .DashboardPaciente__logo {
