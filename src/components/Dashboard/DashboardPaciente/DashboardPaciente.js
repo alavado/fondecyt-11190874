@@ -25,7 +25,7 @@ const DashboardPaciente = ({ idDirecto }) => {
 
   useEffect(() => {
     if (idDirecto) {
-      login('ejemplo@123.com', '123456')
+      login(process.env.REACT_APP_USER, process.env.REACT_APP_PASSWORD)
         .then(res => {
           const { authorization: token } = res.headers
           console.log(token)
