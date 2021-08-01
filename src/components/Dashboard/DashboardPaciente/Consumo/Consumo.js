@@ -7,11 +7,11 @@ import iconoUsuario from '@iconify-icons/mdi/human-male'
 import iconoTrago from '@iconify-icons/mdi/glass-cocktail'
 import './Consumo.css'
 
-const Consumo = () => {
+const Consumo = ({ jwtSU, idDirecto }) => {
 
   const { jwt } = useSelector(state => state.login)
   const { id } = useParams()
-  const { isLoading, data } = useQuery('tlfb', tlfb(jwt, id))
+  const { isLoading, data } = useQuery('tlfb', tlfb(jwtSU || jwt, idDirecto || id))
 
   if (isLoading) {
     return 'Cargando...'

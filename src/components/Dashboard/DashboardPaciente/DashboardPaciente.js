@@ -7,13 +7,15 @@ import CryptoJS from 'crypto-js'
 import logo from '../../../assets/TMB Color-01.svg'
 import { InlineIcon } from '@iconify/react'
 import iconoCopiar from '@iconify-icons/mdi/content-copy'
-import { useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { login } from '../../../helpers/api'
 
-const DashboardPaciente = () => {
+const DashboardPaciente = ({ idDirecto }) => {
 
   const { id } = useParams()
+  const [jwtSU, setJwtSU] = useState()
   const textoLink = useRef()
-  const kLinkDirecto = CryptoJS.AES.encrypt(id, process.env.REACT_APP_AESK)
+  const kLinkDirecto = CryptoJS.AES.encrypt(id || '', process.env.REACT_APP_AESK)
 
   const copiarLink = () => {
     textoLink.current.select()
@@ -21,17 +23,28 @@ const DashboardPaciente = () => {
     document.execCommand('copy')
   }
 
+  useEffect(() => {
+    if (idDirecto) {
+      login('ejemplo@123.com', '123456')
+        .then(res => {
+          const { authorization: token } = res.headers
+          console.log(token)
+          setJwtSU(token)
+        })
+    }
+  }, [idDirecto])
+
   return (
     <div className="DashboardPaciente">
       <div className="DashboardPaciente__superior">
         <img className="DashboardPaciente__logo" src={logo} alt="Logo TMB" />
         <h1 className="DashboardPaciente__titulo">Sus indicadores</h1>
-        <div className="DashboardPaciente__contenedor_link_para_compartir">
+        {id && <div className="DashboardPaciente__contenedor_link_para_compartir">
           <label>Link directo:</label>
           <input
             ref={textoLink}
             className="DashboardPaciente__link_para_compartir"
-            value={`${window.location.origin}?k=${encodeURIComponent(kLinkDirecto)}`}
+            value={`${window.location.origin}/d?k=${encodeURIComponent(kLinkDirecto)}`}
           />
           <button
             className="DashboardPaciente__boton_copiar_link"
@@ -40,25 +53,25 @@ const DashboardPaciente = () => {
           >
             <InlineIcon icon={iconoCopiar} />
           </button>
-        </div>
+        </div>}
       </div>
       <nav className="DashboardPaciente__navegacion">
         <NavLink
           activeClassName="DashboardPaciente__link--activo"
           className="DashboardPaciente__link"
-          to={`/paciente/${id}/consumo`}>
+          to={id ? `/paciente/${id}/consumo` : '/d/consumo'}>
             Consumo
           </NavLink>
         <NavLink
           activeClassName="DashboardPaciente__link--activo"
           className="DashboardPaciente__link"
-          to={`/paciente/${id}/intoxicacion`}>
+          to={id ? `/paciente/${id}/intoxicacion` : '/d/intoxicacion'}>
             Intoxicación
           </NavLink>
         <NavLink
           activeClassName="DashboardPaciente__link--activo"
           className="DashboardPaciente__link"
-          to={`/paciente/${id}/riesgos`}>
+          to={id ? `/paciente/${id}/riesgos` : '/d/riesgos'}>
             Riesgos
           </NavLink>
       </nav>
@@ -72,6 +85,15 @@ const DashboardPaciente = () => {
           </Route>
           <Route path={`/paciente/:id/riesgos`}>
             <Riesgos />
+          </Route>
+          <Route path={`/d/consumo`}>
+            <Consumo idDirecto={idDirecto} jwtSU={jwtSU} />
+          </Route>
+          <Route path={`/d/intoxicacion`}>
+            <Intoxicacion idDirecto={idDirecto} jwtSU={jwtSU} />
+          </Route>
+          <Route path={`/d/riesgos`}>
+            <Riesgos idDirecto={idDirecto} jwtSU={jwtSU} />
           </Route>
         </Switch>
       </div>

@@ -5,13 +5,13 @@ import { antecedentes, assist, tlfb } from '../../../../helpers/api'
 import { calificacionRiesgoEdadInicio, calificacionRiesgoFamiliar, calificacionRiesgoPrimerProblema, calificacionSustanciaAssist, calificacionTolerancia } from '../../../../helpers/clasificaciones'
 import './Riesgos.css'
 
-const Riesgos = () => {
+const Riesgos = ({ jwtSU, idDirecto }) => {
 
   const { jwt } = useSelector(state => state.login)
   const { id } = useParams()
-  const { isLoading: loadingTlfb, data: dataTlfb } = useQuery('tlfb', tlfb(jwt, id))
-  const { isLoading: loadingAssist, data: dataAssist } = useQuery('assist', assist(jwt, id))
-  const { isLoading: loadingAntecedentes, data: dataAntecedentes } = useQuery('antecedentes', antecedentes(jwt, id))
+  const { isLoading: loadingTlfb, data: dataTlfb } = useQuery('tlfb', tlfb(jwtSU || jwt, idDirecto || id))
+  const { isLoading: loadingAssist, data: dataAssist } = useQuery('assist', assist(jwtSU || jwt, idDirecto || id))
+  const { isLoading: loadingAntecedentes, data: dataAntecedentes } = useQuery('antecedentes', antecedentes(jwtSU || jwt, idDirecto || id))
 
   if (loadingTlfb || loadingAssist || loadingAntecedentes) {
     return 'Cargando...'

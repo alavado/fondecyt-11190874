@@ -4,11 +4,11 @@ import { useParams } from 'react-router-dom'
 import { tlfb } from '../../../../helpers/api'
 import './Intoxicacion.css'
 
-const Intoxicacion = () => {
+const Intoxicacion = ({ jwtSU, idDirecto }) => {
 
   const { jwt } = useSelector(state => state.login)
   const { id } = useParams()
-  const { isLoading, data } = useQuery('tlfb', tlfb(jwt, id))
+  const { isLoading, data } = useQuery('tlfb', tlfb(jwtSU || jwt, idDirecto || id))
 
   if (isLoading) {
     return 'Cargando...'
