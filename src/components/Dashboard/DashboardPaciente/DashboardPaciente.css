@@ -9,7 +9,7 @@
   background-color: var(--color-fondo-central);
   box-shadow: 0 .75rem 1rem rgba(0, 0, 0, .15);
   padding: 1rem;
-  max-height: calc(100vh - 11rem);
+  max-height: calc(100vh - 9.5rem);
   overflow: auto;
 }
 
@@ -20,7 +20,7 @@
 }
 
 .DashboardPaciente__contenedor::-webkit-scrollbar {
-  width: .5rem;
+  width: 1rem;
   background-color: transparent;
 }
 
@@ -38,11 +38,11 @@
 }
 
 .DashboardPaciente__logo {
-  width: 5rem;
+  width: 4rem;
 }
 
 .DashboardPaciente__titulo {
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: bold;
 }
 
@@ -61,7 +61,8 @@
   justify-content: center;
   border-bottom: .15rem solid #e2e8f0;
   color: var(--color-texto);
-  font-size: 1rem;
+  font-size: 1.25rem;
+  font-weight: bold;
   flex: 1;
   transition: all .25s ease-in-out;
 }
