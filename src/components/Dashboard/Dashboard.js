@@ -5,11 +5,21 @@ import './Dashboard.css'
 import { borraToken } from '../../redux/ducks/login'
 import ListaPacientes from './ListaPacientes'
 import DashboardPaciente from './DashboardPaciente/DashboardPaciente'
+import CryptoJS from 'crypto-js'
 
 const Dashboard = () => {
 
   const { exp } = useSelector(state => state.login)
   const dispatch = useDispatch()
+  const tokenDirecto = (new URLSearchParams(window.location.search)).get('k')
+
+  if (tokenDirecto) {
+    const base64 = CryptoJS.AES.decrypt(decodeURIComponent(tokenDirecto), process.env.REACT_APP_AESK)
+    const id = CryptoJS.enc.Latin1.stringify(base64)
+    if (!id) {
+      return 'El link directo no es válido'
+    }
+  }
 
   if (!exp || exp < Date.now() / 1000) {
     dispatch(borraToken())
@@ -25,6 +35,9 @@ const Dashboard = () => {
           </Route>
           <Route path="/">
             <ListaPacientes />
+          </Route>
+          <Route path="/d">
+            <DashboardPaciente />
           </Route>
         </Switch>
       </div>

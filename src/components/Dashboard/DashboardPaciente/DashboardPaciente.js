@@ -3,17 +3,27 @@ import './DashboardPaciente.css'
 import Consumo from './Consumo'
 import Intoxicacion from './Intoxicacion'
 import Riesgos from './Riesgos'
+import CryptoJS from 'crypto-js'
 import logo from '../../../assets/TMB Color-01.svg'
 
 const DashboardPaciente = () => {
 
   const { id } = useParams()
+  const kLinkDirecto = CryptoJS.AES.encrypt(id, process.env.REACT_APP_AESK)
 
   return (
     <div className="DashboardPaciente">
       <div className="DashboardPaciente__superior">
         <img className="DashboardPaciente__logo" src={logo} alt="Logo TMB" />
         <h1 className="DashboardPaciente__titulo">Sus indicadores</h1>
+        <div className="DashboardPaciente__contenedor_link_para_compartir">
+          <label>Link directo:</label>
+          <input
+            className="DashboardPaciente__link_para_compartir"
+            value={`${window.location.origin}?k=${encodeURIComponent(kLinkDirecto)}`}
+          />
+          <button>Copiar</button>
+        </div>
       </div>
       <nav className="DashboardPaciente__navegacion">
         <NavLink
