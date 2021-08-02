@@ -32,11 +32,15 @@
 
 .DashboardPaciente__superior {
   display: flex;
-  gap: 1rem;
   align-items: center;
   justify-content: flex-start;
   color: white;
   width: 100%;
+}
+
+.DashboardPaciente__boton_volver {
+  font-size: 2.25rem;
+  width: 2rem;
 }
 
 .DashboardPaciente__contenedor_link_para_compartir {
@@ -59,6 +63,7 @@
 
 .DashboardPaciente__logo {
   width: 4rem;
+  margin-right: 1rem;
 }
 
 .DashboardPaciente__titulo {

@@ -1,4 +1,4 @@
-import { NavLink, Route, Switch, useParams } from 'react-router-dom'
+import { Link, NavLink, Route, Switch, useParams } from 'react-router-dom'
 import './DashboardPaciente.css'
 import Consumo from './Consumo'
 import Intoxicacion from './Intoxicacion'
@@ -7,6 +7,7 @@ import CryptoJS from 'crypto-js'
 import logo from '../../../assets/TMB Color-01.svg'
 import { InlineIcon } from '@iconify/react'
 import iconoCopiar from '@iconify-icons/mdi/content-copy'
+import iconoVolver from '@iconify-icons/mdi/chevron-left'
 import { useEffect, useRef, useState } from 'react'
 import { login } from '../../../helpers/api'
 
@@ -37,23 +38,34 @@ const DashboardPaciente = ({ idDirecto }) => {
   return (
     <div className="DashboardPaciente">
       <div className="DashboardPaciente__superior">
+        {id && (
+          <Link
+            className="DashboardPaciente__boton_volver"
+            to="/pacientes"
+            title="Volver"
+          >
+            <InlineIcon icon={iconoVolver} />
+          </Link>
+        )}
         <img className="DashboardPaciente__logo" src={logo} alt="Logo TMB" />
         <h1 className="DashboardPaciente__titulo">Sus indicadores</h1>
-        {id && <div className="DashboardPaciente__contenedor_link_para_compartir">
-          <label>Link directo:</label>
-          <input
-            ref={textoLink}
-            className="DashboardPaciente__link_para_compartir"
-            value={`${window.location.origin}/d?k=${encodeURIComponent(kLinkDirecto)}`}
-          />
-          <button
-            className="DashboardPaciente__boton_copiar_link"
-            title="Copiar link"
-            onClick={copiarLink}
-          >
-            <InlineIcon icon={iconoCopiar} />
-          </button>
-        </div>}
+        {id && (
+          <div className="DashboardPaciente__contenedor_link_para_compartir">
+            <label>Link para paciente:</label>
+            <input
+              ref={textoLink}
+              className="DashboardPaciente__link_para_compartir"
+              value={`${window.location.origin}/d?k=${encodeURIComponent(kLinkDirecto)}`}
+            />
+            <button
+              className="DashboardPaciente__boton_copiar_link"
+              title="Copiar link"
+              onClick={copiarLink}
+            >
+              <InlineIcon icon={iconoCopiar} />
+            </button>
+          </div>
+        )}
       </div>
       <nav className="DashboardPaciente__navegacion">
         <NavLink
