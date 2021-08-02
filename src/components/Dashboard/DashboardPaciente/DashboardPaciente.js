@@ -16,7 +16,7 @@ const DashboardPaciente = ({ idDirecto }) => {
   const { id } = useParams()
   const [jwtSU, setJwtSU] = useState()
   const textoLink = useRef()
-  const kLinkDirecto = CryptoJS.AES.encrypt(id || '', process.env.REACT_APP_AESK)
+  const kLinkDirecto = CryptoJS.AES.encrypt(id || 'x', process.env.REACT_APP_AESK)
 
   const copiarLink = () => {
     textoLink.current.select()

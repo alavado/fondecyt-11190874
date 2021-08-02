@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { Route, Switch, useHistory } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import Login from '../Login'
 import './Dashboard.css'
 import { borraToken } from '../../redux/ducks/login'
@@ -11,7 +11,6 @@ const Dashboard = () => {
 
   const { exp } = useSelector(state => state.login)
   const dispatch = useDispatch()
-  const history = useHistory()
   const tokenDirecto = (new URLSearchParams(window.location.search)).get('k')
   let idDirecto
 
