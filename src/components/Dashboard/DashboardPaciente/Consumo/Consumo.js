@@ -36,11 +36,35 @@ const Consumo = ({ jwtSU, idDirecto }) => {
   return (
     <div className="Consumo">
       <div className="Consumo__consumo_semanal">
+        <p className="Consumo__encabezado">Usted consume</p>
+        <div className="Consumo__iconos_tragos">{Array(Math.round(tdd)).fill(0).map(() => <div className="Consumo__icono"><Icon icon={iconoTrago} /></div>)}</div>
+        <p className="Consumo__cifra_grande">{Math.round(tdd)}</p>
+        <p>tragos estándar <span className="Consumo__texto_destacado">en un día típico</span></p>
+      </div>
+      <div className="Consumo__consumo_semanal">
+        <p className="Consumo__encabezado">Su consumo máximo es de</p>
+        <div className="Consumo__iconos_tragos">{Array(Math.round(t_dia_max)).fill(0).map(() => <div className="Consumo__icono"><Icon icon={iconoTrago} /></div>)}</div>
+        <p className="Consumo__cifra_grande">{Math.round(t_dia_max)}</p>
+        <p>tragos estándar <span className="Consumo__texto_destacado">en un día</span></p>
+      </div>
+      <div className="Consumo__consumo_semanal">
         {/* <Icon className="Consumo__icono_trago" icon={iconoTrago} /> */}
         <p className="Consumo__encabezado">Usted consume</p>
         <div className="Consumo__iconos_tragos">{Array(Math.round(t_semana_promedio)).fill(0).map(() => <div className="Consumo__icono"><Icon icon={iconoTrago} /></div>)}</div>
         <p className="Consumo__cifra_grande">{Math.round(t_semana_promedio)}</p>
         <p>tragos estándar <span className="Consumo__texto_destacado">por semana</span></p>
+      </div>
+      <div className="Consumo__consumo_semanal">
+        <p className="Consumo__encabezado">Su consumo mínimo es de</p>
+        <div className="Consumo__iconos_tragos">{Array(Math.round(t_semana_min)).fill(0).map(() => <div className="Consumo__icono"><Icon icon={iconoTrago} /></div>)}</div>
+        <p className="Consumo__cifra_grande">{Math.round(t_semana_min)}</p>
+        <p>tragos estándar <span className="Consumo__texto_destacado">en una semana</span></p>
+      </div>
+      <div className="Consumo__consumo_semanal">
+        <p className="Consumo__encabezado">Su consumo máximo es de</p>
+        <div className="Consumo__iconos_tragos">{Array(Math.round(t_semana_max)).fill(0).map(() => <div className="Consumo__icono"><Icon icon={iconoTrago} /></div>)}</div>
+        <p className="Consumo__cifra_grande">{Math.round(t_semana_max)}</p>
+        <p>tragos estándar <span className="Consumo__texto_destacado">en una semana</span></p>
       </div>
       <div className="Consumo__comparacion">
         <p className="Consumo__encabezado">Por cada 100 personas de su edad en Chile</p>
@@ -56,30 +80,6 @@ const Consumo = ({ jwtSU, idDirecto }) => {
           </div>
           <p className="Consumo__bajada_personas"><span className="Consumo__cifra">{nConsumenMas} persona{nConsumenMas !== 1 ? 's' : ''}</span><br /> consume{nConsumenMas !== 1 ? 'n' : ''} <strong className="Consumo__texto_destacado">más que usted</strong></p>
         </div>
-      </div>
-      <div className="Consumo__consumo_semanal">
-        <p className="Consumo__encabezado">Su consumo mínimo es de</p>
-        <div className="Consumo__iconos_tragos">{Array(Math.round(t_semana_min)).fill(0).map(() => <div className="Consumo__icono"><Icon icon={iconoTrago} /></div>)}</div>
-        <p className="Consumo__cifra_grande">{Math.round(t_semana_min)}</p>
-        <p>tragos estándar <span className="Consumo__texto_destacado">en una semana</span></p>
-      </div>
-      <div className="Consumo__consumo_semanal">
-        <p className="Consumo__encabezado">Su consumo máximo es de</p>
-        <div className="Consumo__iconos_tragos">{Array(Math.round(t_semana_max)).fill(0).map(() => <div className="Consumo__icono"><Icon icon={iconoTrago} /></div>)}</div>
-        <p className="Consumo__cifra_grande">{Math.round(t_semana_max)}</p>
-        <p>tragos estándar <span className="Consumo__texto_destacado">en una semana</span></p>
-      </div>
-      <div className="Consumo__consumo_semanal">
-        <p className="Consumo__encabezado">Usted consume</p>
-        <div className="Consumo__iconos_tragos">{Array(Math.round(tdd)).fill(0).map(() => <div className="Consumo__icono"><Icon icon={iconoTrago} /></div>)}</div>
-        <p className="Consumo__cifra_grande">{Math.round(tdd)}</p>
-        <p>tragos estándar <span className="Consumo__texto_destacado">en un día típico</span></p>
-      </div>
-      <div className="Consumo__consumo_semanal">
-        <p className="Consumo__encabezado">Su consumo máximo es de</p>
-        <div className="Consumo__iconos_tragos">{Array(Math.round(t_dia_max)).fill(0).map(() => <div className="Consumo__icono"><Icon icon={iconoTrago} /></div>)}</div>
-        <p className="Consumo__cifra_grande">{Math.round(t_dia_max)}</p>
-        <p>tragos estándar <span className="Consumo__texto_destacado">en un día</span></p>
       </div>
     </div>
   )

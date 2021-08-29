@@ -15,6 +15,7 @@ const DashboardPaciente = ({ idDirecto }) => {
 
   const { id } = useParams()
   const [jwtSU, setJwtSU] = useState()
+  const [mostrandoIndicacionCopia, setMostrandoIndicacionCopia] = useState(false)
   const textoLink = useRef()
   const kLinkDirecto = CryptoJS.AES.encrypt(id || 'x', process.env.REACT_APP_AESK)
 
@@ -22,6 +23,7 @@ const DashboardPaciente = ({ idDirecto }) => {
     textoLink.current.select()
     textoLink.current.setSelectionRange(0, 99999)
     document.execCommand('copy')
+    setMostrandoIndicacionCopia(true)
   }
 
   useEffect(() => {
@@ -34,6 +36,12 @@ const DashboardPaciente = ({ idDirecto }) => {
         })
     }
   }, [idDirecto])
+
+  useEffect(() => {
+    if (mostrandoIndicacionCopia) {
+      setTimeout(() => setMostrandoIndicacionCopia(false), 500)
+    }
+  }, [mostrandoIndicacionCopia])
 
   return (
     <div className="DashboardPaciente">
@@ -63,6 +71,7 @@ const DashboardPaciente = ({ idDirecto }) => {
               onClick={copiarLink}
             >
               <InlineIcon icon={iconoCopiar} />
+              {mostrandoIndicacionCopia && <div className="DashboardPaciente__indicador_copia">¡Copiado!</div>}
             </button>
           </div>
         )}
