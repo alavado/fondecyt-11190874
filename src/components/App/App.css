@@ -1,6 +1,6 @@
 .App {
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
   font-family: 'Inter', sans-serif;
   background: radial-gradient(circle 100vw at 50% 0%, #718096, #171923);
 }

@@ -1,20 +1,68 @@
 .ListaPacientes {
   background-color: var(--color-blanco);
   color: var(--color-texto);
-  padding: 2rem;
+  padding: 1rem 2rem;
   border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.ListaPacientes__logo {
+  width: 4rem;
+}
+
+.ListaPacientes__encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
 }
 
 .ListaPacientes__titulo {
   font-weight: bold;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+  font-size: 1.35rem;
+  align-items: center;
+  display: flex;
 }
 
-.ListaPacientes__elemento {
-  height: 4rem;
-  display: flex;
-  align-items: center;
-  text-decoration: underline;
-  font-size: 1.15rem;
+.ListaPacientes__tabla {
+  table-layout: fixed;
+  font-size: .85rem;
+}
+
+.ListaPacientes__tabla th {
+  font-weight: bold;
+  padding: .5rem 0;
+  border-bottom: .2rem solid #1A202C;
+}
+
+.ListaPacientes__tabla tr {
+  cursor: pointer;
+  transition: all .15s ease;
+}
+
+.ListaPacientes__tabla tr:hover {
+  background-color: #EDF2F7 !important;
+}
+
+.ListaPacientes__tabla tr:active {
+  background-color: #CBD5E0 !important;
+}
+
+.ListaPacientes__tabla tbody tr:nth-child(odd) {
+  background-color: #F7FAFC;
+}
+
+.ListaPacientes__tabla tbody td:first-child {
+  padding: 1rem 1rem 1rem .5rem;
+}
+
+.ListaPacientes__tabla td:not(:last-child) {
+  white-space: nowrap;
+  padding: 1rem 1rem 1rem 0;
+}
+
+.ListaPacientes__tabla td:last-child {
+  padding: 1rem 1rem 1rem 1rem;
+  line-height: 1.25;
 }
