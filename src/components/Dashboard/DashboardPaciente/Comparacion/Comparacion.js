@@ -27,20 +27,18 @@ const Comparacion = ({ jwtSU, idDirecto }) => {
 
   return (
     <div className="Comparacion">
-      <div className="Consumo__comparacion">
-        <p className="Consumo__encabezado">Por cada 100 personas de su edad en Chile</p>
-        <div className="Consumo__contenedor_personas">
-          <div className="Consumo__contenedor_iconos">
-            {Array(nConsumenMenos).fill(0).map(() => <div className="Consumo__icono"><Icon icon={iconoUsuario} /></div>)}
-          </div>
-          <p className="Consumo__bajada_personas"><span className="Consumo__cifra">{nConsumenMenos} persona{nConsumenMenos !== 1 ? 's' : ''}</span> consume{nConsumenMenos !== 1 ? 'n' : ''}<br /> <strong className="Consumo__texto_destacado">menos que usted</strong></p>
-          <div className="Consumo__usted"><Icon icon={iconoUsuario} /></div>
-          <div />
-          <div className="Consumo__contenedor_iconos">
-            {Array(nConsumenMas).fill(0).map(() => <div className="Consumo__icono"><Icon icon={iconoUsuario} /></div>)}
-          </div>
-          <p className="Consumo__bajada_personas"><span className="Consumo__cifra">{nConsumenMas} persona{nConsumenMas !== 1 ? 's' : ''}</span> consume{nConsumenMas !== 1 ? 'n' : ''}<br /> <strong className="Consumo__texto_destacado">más que usted</strong></p>
+      <p className="Comparacion__encabezado">Por cada 100 personas de su edad en Chile</p>
+      <div className="Comparacion__contenedor_personas">
+        <div className="Comparacion__contenedor_iconos">
+          {Array(nConsumenMenos).fill(0).map(() => <div className="Comparacion__icono"><Icon icon={iconoUsuario} /></div>)}
         </div>
+        <p className="Comparacion__bajada_personas"><span className="Comparacion__cifra">{nConsumenMenos} persona{nConsumenMenos !== 1 ? 's' : ''}</span> consume{nConsumenMenos !== 1 ? 'n' : ''}<br /> <strong className="Comparacion__texto_destacado">menos que usted</strong></p>
+        <div className="Comparacion__usted"><Icon icon={iconoUsuario} /></div>
+        <div />
+        <div className="Comparacion__contenedor_iconos">
+          {Array(nConsumenMas).fill(0).map(() => <div className="Comparacion__icono"><Icon icon={iconoUsuario} /></div>)}
+        </div>
+        <p className="Comparacion__bajada_personas"><span className="Comparacion__cifra">{nConsumenMas} persona{nConsumenMas !== 1 ? 's' : ''}</span> consume{nConsumenMas !== 1 ? 'n' : ''}<br /> <strong className="Comparacion__texto_destacado">más que usted</strong></p>
       </div>
     </div>
   )
