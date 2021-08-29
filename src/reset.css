@@ -64,5 +64,6 @@ a {
 	--color-principal: #3182CE;
 	--color-fondo-central: white;
 	--color-blanco: white;
+	--color-sombras: rgba(0, 0, 0, .25);
   color: var(--color-texto);
 }

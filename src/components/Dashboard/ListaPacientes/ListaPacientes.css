@@ -18,6 +18,28 @@
   padding-bottom: 1rem;
 }
 
+.ListaPacientes__boton_cerrar_sesion {
+  background-color: var(--color-principal);
+  color: var(--color-blanco);
+  border: none;
+  padding: .25rem .75rem;
+  font-size: .8rem;
+  display: flex;
+  align-items: center;
+  gap: .25rem;
+  border-radius: .25rem;
+  cursor: pointer;
+  transition: all .25s ease;
+}
+
+.ListaPacientes__boton_cerrar_sesion:hover {
+  box-shadow: 0 0 .25rem var(--color-sombras);
+}
+
+.ListaPacientes__boton_cerrar_sesion:active {
+  filter: brightness(110%);
+}
+
 .ListaPacientes__titulo {
   font-weight: bold;
   font-size: 1.35rem;
@@ -36,16 +58,16 @@
   border-bottom: .2rem solid #1A202C;
 }
 
-.ListaPacientes__tabla tr {
+.ListaPacientes__tabla tbody tr {
   cursor: pointer;
   transition: all .15s ease;
 }
 
-.ListaPacientes__tabla tr:hover {
+.ListaPacientes__tabla tbody tr:hover {
   background-color: #EDF2F7 !important;
 }
 
-.ListaPacientes__tabla tr:active {
+.ListaPacientes__tabla tbody tr:active {
   background-color: #CBD5E0 !important;
 }
 

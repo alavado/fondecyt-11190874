@@ -1,5 +1,6 @@
 import { useMemo } from 'react'
 import { useQuery } from 'react-query'
+import iconoCerrarSesion from '@iconify-icons/mdi/logout'
 import { useDispatch, useSelector } from 'react-redux'
 import logoColor from '../../../assets/TMB Color-02.svg'
 import { useTable } from 'react-table'
@@ -8,6 +9,7 @@ import { borraToken } from '../../../redux/ducks/login'
 import './ListaPacientes.css'
 import { differenceInYears, parse } from 'date-fns'
 import { useHistory } from 'react-router-dom'
+import { InlineIcon } from '@iconify/react'
 
 const ListaPacientes = () => {
 
@@ -80,7 +82,13 @@ const ListaPacientes = () => {
     <div className="ListaPacientes">
       <div className="ListaPacientes__encabezado">
         <h1 className="ListaPacientes__titulo"><img src={logoColor} className="ListaPacientes__logo" alt="Logo TMB" /> Pacientes en estudio (estado = 8)</h1>
-        <button onClick={() => dispatch(borraToken())}>Cerrar sesión</button>
+        <button
+          onClick={() => dispatch(borraToken())}
+          className="ListaPacientes__boton_cerrar_sesion"
+        >
+          <InlineIcon icon={iconoCerrarSesion} />
+          Cerrar sesión
+        </button>
       </div>
       <table className="ListaPacientes__tabla" {...getTableProps()}>
         <thead>
