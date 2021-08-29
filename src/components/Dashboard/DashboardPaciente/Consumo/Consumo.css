@@ -4,10 +4,17 @@
   place-items: center;
   gap: 7rem;
   padding: 3rem 0;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.Consumo__contenedor {
+  display: flex;
+  gap: 5rem;
 }
 
 .Consumo__encabezado {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   margin-bottom: .5rem;
   text-align: center;
   font-weight: 700;
@@ -38,6 +45,28 @@
 .Consumo__cifra_grande {
   font-size: 5rem;
   font-weight: 700;
+}
+
+.Consumo__consumo_semanal--pequeño {
+  font-size: 1rem;
+}
+
+.Consumo__consumo_semanal--pequeño .Consumo__encabezado {
+  font-size: 1rem;
+  margin-bottom: .25rem;
+}
+
+.Consumo__consumo_semanal--pequeño .Consumo__iconos_tragos {
+  width: 5rem;
+}
+
+.Consumo__consumo_semanal--pequeño .Consumo__icono {
+  font-size: 1rem;
+  width: 1rem;
+}
+
+.Consumo__consumo_semanal--pequeño .Consumo__cifra_grande {
+  font-size: 3rem;
 }
 
 .Consumo__comparacion {
