@@ -101,7 +101,7 @@
   justify-content: center;
   border-bottom: .15rem solid #e2e8f0;
   color: var(--color-texto);
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: bold;
   flex: 1;
   transition: all .25s ease-in-out;

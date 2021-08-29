@@ -3,7 +3,6 @@ import { useQuery } from 'react-query'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { tlfb } from '../../../../helpers/api'
-import iconoUsuario from '@iconify-icons/mdi/human-male'
 import iconoTrago from '@iconify-icons/mdi/glass-cocktail'
 import './Consumo.css'
 
@@ -29,9 +28,6 @@ const Consumo = ({ jwtSU, idDirecto }) => {
     t_semana_promedio,
     tdd
   } = data.data.data.attributes
-
-  const nConsumenMenos = +percentil
-  const nConsumenMas = 100 - +percentil
 
   return (
     <div className="Consumo">
@@ -68,21 +64,6 @@ const Consumo = ({ jwtSU, idDirecto }) => {
           <div className="Consumo__iconos_tragos">{Array(Math.round(t_semana_max)).fill(0).map(() => <div className="Consumo__icono"><Icon icon={iconoTrago} /></div>)}</div>
           <p className="Consumo__cifra_grande">{Math.round(t_semana_max)}</p>
           <p>tragos estándar <br /><span className="Consumo__texto_destacado">en una semana</span></p>
-        </div>
-      </div>
-      <div className="Consumo__comparacion">
-        <p className="Consumo__encabezado">Por cada 100 personas de su edad en Chile</p>
-        <div className="Consumo__contenedor_personas">
-          <div className="Consumo__contenedor_iconos">
-            {Array(nConsumenMenos).fill(0).map(() => <div className="Consumo__icono"><Icon icon={iconoUsuario} /></div>)}
-          </div>
-          <p className="Consumo__bajada_personas"><span className="Consumo__cifra">{nConsumenMenos} persona{nConsumenMenos !== 1 ? 's' : ''}</span> consume{nConsumenMenos !== 1 ? 'n' : ''}<br /> <strong className="Consumo__texto_destacado">menos que usted</strong></p>
-          <div className="Consumo__usted"><Icon icon={iconoUsuario} /></div>
-          <div />
-          <div className="Consumo__contenedor_iconos">
-            {Array(nConsumenMas).fill(0).map(() => <div className="Consumo__icono"><Icon icon={iconoUsuario} /></div>)}
-          </div>
-          <p className="Consumo__bajada_personas"><span className="Consumo__cifra">{nConsumenMas} persona{nConsumenMas !== 1 ? 's' : ''}</span> consume{nConsumenMas !== 1 ? 'n' : ''}<br /> <strong className="Consumo__texto_destacado">más que usted</strong></p>
         </div>
       </div>
     </div>

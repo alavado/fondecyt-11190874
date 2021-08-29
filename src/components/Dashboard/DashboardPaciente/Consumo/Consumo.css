@@ -3,7 +3,7 @@
   grid-template-columns: 1fr;
   place-items: center;
   gap: 7rem;
-  padding: 3rem 0;
+  padding: 2rem 0;
   line-height: 1.15;
   text-align: center;
 }

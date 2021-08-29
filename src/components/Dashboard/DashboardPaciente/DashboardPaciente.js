@@ -10,6 +10,7 @@ import iconoCopiar from '@iconify-icons/mdi/content-copy'
 import iconoVolver from '@iconify-icons/mdi/chevron-left'
 import { useEffect, useRef, useState } from 'react'
 import { login } from '../../../helpers/api'
+import Comparacion from './Comparacion'
 
 const DashboardPaciente = ({ idDirecto }) => {
 
@@ -80,26 +81,39 @@ const DashboardPaciente = ({ idDirecto }) => {
         <NavLink
           activeClassName="DashboardPaciente__link--activo"
           className="DashboardPaciente__link"
-          to={id ? `/paciente/${id}/consumo` : '/d/consumo'}>
-            Consumo
-          </NavLink>
+          to={id ? `/paciente/${id}/consumo` : '/d/consumo'}
+        >
+          Mi Consumo
+        </NavLink>
         <NavLink
           activeClassName="DashboardPaciente__link--activo"
           className="DashboardPaciente__link"
-          to={id ? `/paciente/${id}/intoxicacion` : '/d/intoxicacion'}>
-            Intoxicación
-          </NavLink>
+          to={id ? `/paciente/${id}/comparacion` : '/d/comparacion'}
+        >
+          Comparación
+        </NavLink>
         <NavLink
           activeClassName="DashboardPaciente__link--activo"
           className="DashboardPaciente__link"
-          to={id ? `/paciente/${id}/riesgos` : '/d/riesgos'}>
-            Riesgos
-          </NavLink>
+          to={id ? `/paciente/${id}/intoxicacion` : '/d/intoxicacion'}
+        >
+          Intoxicación
+        </NavLink>
+        <NavLink
+          activeClassName="DashboardPaciente__link--activo"
+          className="DashboardPaciente__link"
+          to={id ? `/paciente/${id}/riesgos` : '/d/riesgos'}
+        >
+          Riesgos
+        </NavLink>
       </nav>
       <div className="DashboardPaciente__contenedor">
         <Switch>
           <Route path={`/paciente/:id/consumo`}>
             <Consumo />
+          </Route>
+          <Route path={`/paciente/:id/comparacion`}>
+            <Comparacion />
           </Route>
           <Route path={`/paciente/:id/intoxicacion`}>
             <Intoxicacion />
