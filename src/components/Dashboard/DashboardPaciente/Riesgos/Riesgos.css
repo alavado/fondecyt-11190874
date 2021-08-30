@@ -1,14 +1,18 @@
 .Riesgos {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1rem;
+  gap: 2rem;
   place-items: center;
+  padding: 2rem 0 5rem 0;
 }
 
-.Riesgos p {
-  padding: 1rem;
-  min-height: 5rem;
+.Riegos__contenedor_riesgo {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  border-radius: .25rem;
+  gap: 1rem;
+}
+
+.Riesgos__etiqueta_riesgo {
+  font-weight: 700;
 }

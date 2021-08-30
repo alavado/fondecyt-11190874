@@ -27,13 +27,28 @@ const Riesgos = ({ jwtSU, idDirecto }) => {
 
   return (
     <div className="Riesgos">
-      <p>Tolerancia {calificacionTolerancia(tolerancia)}</p>
-      <p>Marihuana {calificacionSustanciaAssist(datosAssist, 'c')}</p>
-      <p>Cocaina {calificacionSustanciaAssist(datosAssist, 'd')}</p>
-      <p>Opiaceos {calificacionSustanciaAssist(datosAssist, 'i')}</p>
-      <p>Riesgo familiar {calificacionRiesgoFamiliar(datosAntecedentes.familiarquien)[0]}</p>
-      <p>Edad del primer consumo de alcohol {calificacionRiesgoEdadInicio(datosAntecedentes.primeroh)}</p>
-      <p>Edad del primer problema con el alcohol {calificacionRiesgoPrimerProblema(datosAntecedentes.primerprob)}</p>
+      <div className="Riegos__contenedor_riesgo">
+        <p className="Riesgos__nombre_riesgo">Tolerancia</p>
+        <p className="Riesgos__etiqueta_riesgo">{calificacionTolerancia(tolerancia)}</p></div>
+      <div className="Riegos__contenedor_riesgo">
+        <p className="Riesgos__nombre_riesgo">Marihuana</p>
+        <p className="Riesgos__etiqueta_riesgo">{calificacionSustanciaAssist(datosAssist, 'c')}</p></div>
+      <div className="Riegos__contenedor_riesgo">
+        <p className="Riesgos__nombre_riesgo">Cocaina</p>
+        <p className="Riesgos__etiqueta_riesgo">{calificacionSustanciaAssist(datosAssist, 'd')}</p></div>
+      <div className="Riegos__contenedor_riesgo">
+        <p className="Riesgos__nombre_riesgo">Opiaceos</p>
+        <p className="Riesgos__etiqueta_riesgo">{calificacionSustanciaAssist(datosAssist, 'i')}</p></div>
+      <div className="Riegos__contenedor_riesgo">
+        <p className="Riesgos__nombre_riesgo">Riesgo familiar</p>
+        <p className="Riesgos__etiqueta_riesgo">{calificacionRiesgoFamiliar(datosAntecedentes.familiarquien)[0]}</p></div>
+      <div className="Riegos__contenedor_riesgo">
+        <p className="Riesgos__nombre_riesgo">Edad del primer consumo de alcohol</p>
+        <p className="Riesgos__etiqueta_riesgo">{calificacionRiesgoEdadInicio(datosAntecedentes.primeroh)}</p></div>
+      <div className="Riegos__contenedor_riesgo">
+        <p className="Riesgos__nombre_riesgo">Edad del primer problema con el alcohol</p>
+        <p className="Riesgos__etiqueta_riesgo">{calificacionRiesgoPrimerProblema(datosAntecedentes.primerprob)}</p>
+      </div>
     </div>
   )
 }
