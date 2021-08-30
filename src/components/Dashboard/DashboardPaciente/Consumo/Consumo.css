@@ -2,8 +2,8 @@
   display: grid;
   grid-template-columns: 1fr;
   place-items: center;
-  gap: 7rem;
-  padding: 2rem 0;
+  gap: 10rem;
+  padding: 4rem 0 12rem 0;
   line-height: 1.15;
   text-align: center;
 }
@@ -11,6 +11,7 @@
 .Consumo__contenedor {
   display: flex;
   gap: 5rem;
+  align-items: center;
 }
 
 .Consumo__encabezado {
@@ -26,6 +27,13 @@
   align-items: center;
   gap: 1rem;
   font-size: 1.35rem;
+}
+
+.Consumo__consumo_semanal--importante {
+  border: 1px solid var(--color-principal);
+  border-radius: 1rem;
+  padding: 2rem 2rem;
+  box-shadow: 0 .15rem .15rem var(--color-sombras);
 }
 
 .Consumo__iconos_tragos {
@@ -45,6 +53,15 @@
 .Consumo__cifra_grande {
   font-size: 5rem;
   font-weight: 700;
+}
+
+.Consumo__cifra_pequeña {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.Consumo__subtitulo_cifra {
+  font-size: .85rem;
 }
 
 .Consumo__consumo_semanal--pequeño {
