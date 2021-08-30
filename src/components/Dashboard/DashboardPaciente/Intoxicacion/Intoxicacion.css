@@ -1,14 +1,24 @@
 .Intoxicacion {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1rem;
+  gap: 2rem;
   place-items: center;
+  padding: 2rem 4rem 10rem 4rem
 }
 
-.Intoxicacion p {
+.Intoxicacion__contenedor_cifra {
   padding: 1rem;
   min-height: 5rem;
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex-direction: column;
   border-radius: .25rem;
+  gap: 1rem;
+  font-size: 1.25rem;
+}
+
+.Intoxicacion__cifra {
+  font-size: 4rem;
+  font-weight: 700;
 }
