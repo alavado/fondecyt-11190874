@@ -1,3 +1,4 @@
+import classNames from 'classnames'
 import { useQuery } from 'react-query'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
@@ -27,14 +28,15 @@ const Intoxicacion = ({ jwtSU, idDirecto }) => {
   return (
     <div className="Intoxicacion">
       <div className="Intoxicacion__contenedor_cifra">
-        <p>Alcoholemia promedio en un día de consumo</p>
-        <p className="Intoxicacion__cifra">{Number(bac_media).toLocaleString('de-DE')}%</p>
+        <p>Su alcoholemia promedio en un día de consumo es</p>
+        <p className="Intoxicacion__cifra">{Number(bac_media).toLocaleString('de-DE')} mg%</p>
       </div>
       <div className="Intoxicacion__contenedor_cifra">
-        <p>Alcoholemia máxima alcanzada en el periodo</p>
-        <p className="Intoxicacion__cifra">{Number(bac_max).toLocaleString('de-DE')}%</p>
+        <p>Su alcoholemia máxima alcanzada en el periodo es</p>
+        <p className="Intoxicacion__cifra">{Number(bac_max).toLocaleString('de-DE')} mg%</p>
       </div>
-      <table>
+      <h2 className="Intoxicacion__subtitulo_tabla">Comportamientos esperados en una persona sin tolerancia</h2>
+      <table className="Intoxicacion__tabla">
         <thead>
           <tr>
             <th>BAC</th>
@@ -43,7 +45,7 @@ const Intoxicacion = ({ jwtSU, idDirecto }) => {
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr className={classNames({ 'Intoxicacion__cifra_fila--destacada': bac_media < 35 })}>
             <td>20%</td>
             <td>
               <ul>
@@ -60,7 +62,7 @@ const Intoxicacion = ({ jwtSU, idDirecto }) => {
               </ul>
             </td>
           </tr>
-          <tr>
+          <tr className={classNames({ 'Intoxicacion__cifra_fila--destacada': bac_media >= 35 && bac_media < 65 })}>
             <td>50%</td>
             <td>
               <ul>
@@ -81,7 +83,7 @@ const Intoxicacion = ({ jwtSU, idDirecto }) => {
               </ul>
             </td>
           </tr>
-          <tr>
+          <tr className={classNames({ 'Intoxicacion__cifra_fila--destacada': bac_media >= 65 && bac_media < 90 })}>
             <td>80%</td>
             <td>
               <ul>
@@ -101,7 +103,7 @@ const Intoxicacion = ({ jwtSU, idDirecto }) => {
               </ul>
             </td>
           </tr>
-          <tr>
+          <tr className={classNames({ 'Intoxicacion__cifra_fila--destacada': bac_media >= 90 && bac_media < 125 })}>
             <td>100%</td>
             <td>
               <ul>
@@ -115,7 +117,7 @@ const Intoxicacion = ({ jwtSU, idDirecto }) => {
               </ul>
             </td>
           </tr>
-          <tr>
+          <tr className={classNames({ 'Intoxicacion__cifra_fila--destacada': bac_media >= 125 && bac_media < 175 })}>
             <td>150%</td>
             <td>
               <ul>
@@ -130,7 +132,7 @@ const Intoxicacion = ({ jwtSU, idDirecto }) => {
               </ul>
             </td>
           </tr>
-          <tr>
+          <tr className={classNames({ 'Intoxicacion__cifra_fila--destacada': bac_media >= 175 && bac_media < 250 })}>
             <td>200%</td>
             <td>
               <ul>
@@ -146,7 +148,7 @@ const Intoxicacion = ({ jwtSU, idDirecto }) => {
               </ul>
             </td>
           </tr>
-          <tr>
+          <tr className={classNames({ 'Intoxicacion__cifra_fila--destacada': bac_media >= 250 && bac_media < 350 })}>
             <td>300%</td>
             <td>
               <ul>
@@ -157,7 +159,7 @@ const Intoxicacion = ({ jwtSU, idDirecto }) => {
             </td>
             <td></td>
           </tr>
-          <tr>
+          <tr className={classNames({ 'Intoxicacion__cifra_fila--destacada': bac_media >= 350 })}>
             <td>&gt; 400%</td>
             <td>
               <ul>
