@@ -12,38 +12,38 @@ export const calificacionSustanciaAssist = (assist, letra) => {
     .filter(k => k.endsWith(`_${letra}`))
     .reduce((s, k) => s + +assist[k], 0)
   if (puntaje <= 3) {
-    return 'Bajo'
+    return 'Riesgo bajo'
   }
   if (puntaje <= 26) {
-    return 'Moderado'
+    return 'Riesgo moderado'
   }
-  return 'Alto'
+  return 'Riesgo alto'
 }
 
 export const calificacionRiesgoFamiliar = indicador => {
   switch (+indicador) {
-    case 0: return ['Bajo', 'Sin familiar']
-    case 1: return ['Medio', 'Familiar indirecto']
-    default: return ['Alto', 'Familiar directo']
+    case 0: return ['Riego bajo', 'Sin familiar']
+    case 1: return ['Riesgo medio', 'Familiar indirecto']
+    default: return ['Riesgo alto', 'Familiar directo']
   }
 }
 
 export const calificacionRiesgoEdadInicio = edad => {
   if (edad < 14) {
-    return 'Muy alto'
+    return 'Riesgo muy alto'
   }
   if (edad < 18) {
-    return 'Alto'
+    return 'Riesgo alto'
   }
-  return 'Bajo'
+  return 'Riesgo bajo'
 }
 
 export const calificacionRiesgoPrimerProblema = edad => {
   if (edad < 18) {
-    return 'Muy alto'
+    return 'Riesgo muy alto'
   }
   if (edad <= 35) {
-    return 'Alto'
+    return 'Riesgo alto'
   }
-  return 'Moderado'
+  return 'Riesgo moderado'
 }

@@ -2,6 +2,7 @@
   padding: 2rem 0;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .Comparacion__encabezado {
@@ -9,6 +10,91 @@
   margin-bottom: .5rem;
   text-align: center;
   font-weight: 700;
+}
+
+.Comparacion__contenedor_piramide {
+  margin-bottom: 5rem;
+  margin-top: 1rem;
+  position: relative;
+  height: 40rem;
+  width: 30rem;
+}
+
+.Comparacion__sombra_piramide {
+  filter: drop-shadow(0 0 .25rem var(--color-sombras))
+}
+
+.Comparacion__piramide {
+  height: 40rem;
+  width: 30rem;
+  display: flex;
+  flex-direction: column;
+  font-size: .75rem;
+  position: absolute;
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+}
+
+.Comparacion__piramide_1 {
+  flex: 2;
+  background-color: #F6AD55;
+}
+
+.Comparacion__piramide_2 {
+  flex: 11;
+  background-color: #FBD38D;
+}
+
+.Comparacion__piramide_3 {
+  flex: 87;
+  background-color: #FFFAF0;
+}
+
+.Comparacion__piramide_etiquetas {
+  font-size: .6rem;
+  display: flex;
+  flex-direction: column;
+  height: 40rem;
+  width: 30rem;
+}
+
+.Comparacion__etiqueta_piramide_1 {
+  flex: 2;
+  border-bottom: 1px dashed var(--color-sombras);
+}
+
+.Comparacion__etiqueta_piramide_2 {
+  padding-top: .15rem;
+  flex: 11;
+  border-bottom: 1px dashed var(--color-sombras);
+}
+
+.Comparacion__etiqueta_piramide_3 {
+  padding-top: .15rem;
+  flex: 87;
+}
+
+.Comparacion__linea_consumo_piramide {
+  position: absolute;
+  right: 0;
+  background-color: var(--color-principal);
+  color: var(--color-blanco);
+  padding: 0 .35rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: .15rem;
+  height: 1rem;
+}
+
+.Comparacion__linea_consumo_piramide::before {
+  content: '';
+  width: 11rem;
+  position: absolute;
+  height: .15rem;
+  background-color: var(--color-principal);
+  left: -10.75rem;
+  top: .85rem;
+  border-radius: .15rem;
 }
 
 .Comparacion__contenedor_personas {

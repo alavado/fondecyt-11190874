@@ -27,6 +27,29 @@ const Comparacion = ({ jwtSU, idDirecto }) => {
 
   return (
     <div className="Comparacion">
+      <p className="Comparacion__encabezado">Su nivel de consumo comparado con la población general</p>
+      <div className="Comparacion__contenedor_piramide">
+        <div className="Comparacion__sombra_piramide">
+          <div className="Comparacion__piramide">
+            <div className="Comparacion__piramide_1"></div>
+            <div className="Comparacion__piramide_2"></div>
+            <div className="Comparacion__piramide_3"></div>
+          </div>
+        </div>
+        <div className="Comparacion__piramide_etiquetas">
+          <div
+            className="Comparacion__linea_consumo_piramide"
+            style={{
+              top: `calc(-1rem + ${nConsumenMas}%)`
+            }}
+          >
+            Su consumo
+          </div>
+          <div className="Comparacion__etiqueta_piramide_1">Posible consumo problema o dependencia (2%)</div>
+          <div className="Comparacion__etiqueta_piramide_2">Consumo de riesgo (11%)</div>
+          <div className="Comparacion__etiqueta_piramide_3">Consumo de bajo riesgo (87%)</div>
+        </div>
+      </div>
       <p className="Comparacion__encabezado">Por cada 100 personas de su edad en Chile</p>
       <div className="Comparacion__contenedor_personas">
         <div className="Comparacion__contenedor_iconos">
