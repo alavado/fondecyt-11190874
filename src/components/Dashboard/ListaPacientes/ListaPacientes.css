@@ -56,6 +56,7 @@
   font-weight: bold;
   padding: .5rem 0;
   border-bottom: .2rem solid #1A202C;
+  text-align: left;
 }
 
 .ListaPacientes__tabla tbody tr {
@@ -75,16 +76,13 @@
   background-color: #F7FAFC;
 }
 
+.ListaPacientes__tabla thead th:first-child,
 .ListaPacientes__tabla tbody td:first-child {
   padding: 1rem 1rem 1rem .5rem;
 }
 
-.ListaPacientes__tabla td:not(:last-child) {
-  white-space: nowrap;
-  padding: 1rem 1rem 1rem 0;
-}
-
-.ListaPacientes__tabla td:last-child {
-  padding: 1rem 1rem 1rem 1rem;
+.ListaPacientes__tabla td {
   line-height: 1.25;
+  padding: 1rem 0;
+  vertical-align: middle;
 }

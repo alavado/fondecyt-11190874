@@ -54,11 +54,7 @@ const ListaPacientes = () => {
       Header: 'E-mail',
       accessor: 'email',
     },
-    {
-      Header: 'Comentario',
-      accessor: 'comentario',
-    },
-  ],[])
+  ], [])
 
   const {
     getTableProps,
@@ -75,8 +71,6 @@ const ListaPacientes = () => {
   if (isError) {
     return 'Error cargando pacientes'
   }
-
-  console.log(data)
 
   return (
     <div className="ListaPacientes">

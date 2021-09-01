@@ -21,20 +21,11 @@ const Riesgos = ({ jwtSU, idDirecto }) => {
     return 'Paciente no tiene datos'
   }
 
-  const { tolerancia } = dataTlfb.data.data.attributes
   const datosAssist = dataAssist.data.data.attributes
   const datosAntecedentes = dataAntecedentes.data.data.attributes
 
   return (
     <div className="Riesgos">
-      <div className="Riegos__contenedor_riesgo">
-        <p className="Riesgos__nombre_riesgo">
-          Tolerancia
-        </p>
-        <p className="Riesgos__etiqueta_riesgo">
-          {calificacionTolerancia(tolerancia)}
-        </p>
-      </div>
       <div className="Riegos__contenedor_riesgo">
         <p className="Riesgos__nombre_riesgo">
           Marihuana

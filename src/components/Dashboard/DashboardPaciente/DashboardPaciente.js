@@ -57,7 +57,10 @@ const DashboardPaciente = ({ idDirecto }) => {
           </Link>
         )}
         <img className="DashboardPaciente__logo" src={logo} alt="Logo TMB" />
-        <h1 className="DashboardPaciente__titulo">Sus indicadores</h1>
+        <div className="DashboardPaciente__contenedor_titulo">
+          <h1 className="DashboardPaciente__titulo">Sus indicadores</h1>
+          <h2 className="DashboardPaciente__subtitulo">según su consumo entre el 01/01/1900 y el 29/05/1919</h2>
+        </div>
         {id && (
           <div className="DashboardPaciente__contenedor_link_para_compartir">
             <label>Link para paciente:</label>

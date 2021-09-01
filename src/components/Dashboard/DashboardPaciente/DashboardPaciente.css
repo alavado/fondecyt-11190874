@@ -81,9 +81,20 @@
   margin-right: 1rem;
 }
 
+.DashboardPaciente__contenedor_titulo {
+  display: flex;
+  flex-direction: column;
+  gap: .15rem;
+}
+
 .DashboardPaciente__titulo {
-  font-size: 1.75rem;
+  font-size: 1.35rem;
   font-weight: bold;
+}
+
+.DashboardPaciente__subtitulo {
+  font-size: .8rem;
+  font-weight: 400;
 }
 
 .DashboardPaciente__navegacion {

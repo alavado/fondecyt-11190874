@@ -3,6 +3,7 @@ import { useQuery } from 'react-query'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { tlfb } from '../../../../helpers/api'
+import { calificacionTolerancia } from '../../../../helpers/clasificaciones'
 import './Intoxicacion.css'
 
 const Intoxicacion = ({ jwtSU, idDirecto }) => {
@@ -22,24 +23,30 @@ const Intoxicacion = ({ jwtSU, idDirecto }) => {
   const {
     bac_max,
     bac_media,
-    gdd
+    tolerancia
   } = data.data.data.attributes
 
   return (
     <div className="Intoxicacion">
-      <div className="Intoxicacion__contenedor_cifra">
-        <p>Su alcoholemia promedio en un día de consumo es</p>
-        <p className="Intoxicacion__cifra">{Number(bac_media).toLocaleString('de-DE')} mg%</p>
-      </div>
-      <div className="Intoxicacion__contenedor_cifra">
-        <p>Su alcoholemia máxima alcanzada en el periodo es</p>
-        <p className="Intoxicacion__cifra">{Number(bac_max).toLocaleString('de-DE')} mg%</p>
+      <div className="Intoxicacion__contenedor_cifras">
+        <div className="Intoxicacion__contenedor_cifra">
+          <p>Su tolerancia al alcohol es</p>
+          <p className="Intoxicacion__cifra">{calificacionTolerancia(tolerancia)}</p>
+        </div>
+        <div className="Intoxicacion__contenedor_cifra">
+          <p>Su alcoholemia promedio<br />en un día de consumo es</p>
+          <p className="Intoxicacion__cifra">{Number(bac_media).toLocaleString('de-DE')} mg%</p>
+        </div>
+        <div className="Intoxicacion__contenedor_cifra">
+          <p>Su alcoholemia máxima<br />alcanzada en el periodo es</p>
+          <p className="Intoxicacion__cifra">{Number(bac_max).toLocaleString('de-DE')} mg%</p>
+        </div>
       </div>
       <h2 className="Intoxicacion__subtitulo_tabla">Comportamientos esperados en una persona sin tolerancia</h2>
       <table className="Intoxicacion__tabla">
         <thead>
           <tr>
-            <th>BAC</th>
+            <th>Alcoholemia</th>
             <th>Efecto típico</th>
             <th>Efecto en la conducción</th>
           </tr>
