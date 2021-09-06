@@ -1,11 +1,25 @@
+import Icon from '@iconify/react'
 import { createPortal } from 'react-dom'
 import { tragos } from '../../helpers/tragos'
+import iconoCerrar from '@iconify-icons/mdi/close'
 import './ModalTragos.css'
 
 const ModalTragos = ({ ocultar }) => {
   return createPortal(
-    <div className="ModalTragos" onClick={ocultar}>
-      <div className="ModalTragos__contenedor">
+    <div
+      className="ModalTragos"
+      onClick={ocultar}
+    >
+      <div
+        onClick={e => e.stopPropagation()}
+        className="ModalTragos__contenedor"
+      >
+        <button
+          onClick={ocultar}
+          className="ModalTragos__boton_cerrar"
+        >
+          <Icon icon={iconoCerrar} />
+        </button>
         <h2 className="ModalTragos__titulo">Tabla de tragos estándar</h2>
         <div className="ModalTragos__tabla">
           <div />
@@ -23,7 +37,7 @@ const ModalTragos = ({ ocultar }) => {
             <div>Cantidad</div>
             <div>Miligramos</div>
             <div>Gramos de alcohol</div>
-            <div>Cantidad de tagos</div>
+            <div>Cantidad de tragos</div>
           </div>
           {tragos.map(t => (
             <div className="ModalTragos__fila_trago">
@@ -31,7 +45,7 @@ const ModalTragos = ({ ocultar }) => {
               <div>{t.nombre}</div>
               <div>{t.ml.toLocaleString('de-DE')}</div>
               <div>{t.alcohol.toLocaleString('de-DE')}</div>
-              <div className="ModalTragos__tragos">{t.tragos} TRAGO</div>
+              <div className="ModalTragos__tragos">{t.tragos} TRAGO{t.tragos !== 1 ? 'S' : ''}</div>
             </div>
           ))}
         </div>

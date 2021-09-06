@@ -1,4 +1,4 @@
-import Icon from '@iconify/react'
+import Icon, { InlineIcon } from '@iconify/react'
 import { useQuery } from 'react-query'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
@@ -35,6 +35,13 @@ const Consumo = ({ jwtSU, idDirecto }) => {
   return (
     <div className="Consumo">
       {modalTragosActivo && <ModalTragos ocultar={() => setModalTragosActivo(false)} />}
+      <button
+        className="Consumo__boton_tabla"
+        onClick={() => setModalTragosActivo(true)}
+        title="Mostrar tabla de tragos estándar"
+      >
+        <InlineIcon icon={iconoTrago} /> Tabla de tragos estándar
+      </button>
       <div className="Consumo__contenedor">
         <div className="Consumo__consumo_semanal Consumo__consumo_semanal--importante">
           <p className="Consumo__encabezado"><span className="Consumo__texto_destacado">En un día típico</span><br />usted consumió</p>

@@ -48,7 +48,7 @@ table {
 }
 
 *, *::before, *::after, body {
-	font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  font-family: 'Inter', sans-serif;
 	box-sizing: border-box;
 }
 

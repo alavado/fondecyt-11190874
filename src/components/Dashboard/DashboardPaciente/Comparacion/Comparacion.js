@@ -27,7 +27,7 @@ const Comparacion = ({ jwtSU, idDirecto }) => {
 
   return (
     <div className="Comparacion">
-      <p className="Comparacion__encabezado">Su nivel de consumo comparado con la población general</p>
+      <p className="Comparacion__encabezado">Su nivel de consumo comparado<br />con la población general</p>
       <div className="Comparacion__contenedor_piramide">
         <div className="Comparacion__sombra_piramide">
           <div className="Comparacion__piramide">
@@ -50,7 +50,7 @@ const Comparacion = ({ jwtSU, idDirecto }) => {
           <div className="Comparacion__etiqueta_piramide_3">Consumo de bajo riesgo (87%)</div>
         </div>
       </div>
-      <p className="Comparacion__encabezado">Por cada 100 personas<br />de su misma edad y sexo en Chile</p>
+      <p className="Comparacion__encabezado">En Chile, por cada 100 personas<br />de su misma edad y sexo</p>
       <div className="Comparacion__contenedor_personas">
         <div className="Comparacion__contenedor_iconos">
           {Array(nConsumenMenos).fill(0).map((_, i) => (
