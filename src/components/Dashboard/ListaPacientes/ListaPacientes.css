@@ -9,13 +9,14 @@
 
 .ListaPacientes__logo {
   width: 4rem;
+  margin-right: .5rem;
 }
 
 .ListaPacientes__encabezado {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 1rem;
+  padding-bottom: .25rem;
 }
 
 .ListaPacientes__boton_cerrar_sesion {

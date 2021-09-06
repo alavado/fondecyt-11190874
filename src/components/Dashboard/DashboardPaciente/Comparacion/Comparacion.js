@@ -50,16 +50,30 @@ const Comparacion = ({ jwtSU, idDirecto }) => {
           <div className="Comparacion__etiqueta_piramide_3">Consumo de bajo riesgo (87%)</div>
         </div>
       </div>
-      <p className="Comparacion__encabezado">Por cada 100 personas de su edad en Chile</p>
+      <p className="Comparacion__encabezado">Por cada 100 personas<br />de su misma edad y sexo en Chile</p>
       <div className="Comparacion__contenedor_personas">
         <div className="Comparacion__contenedor_iconos">
-          {Array(nConsumenMenos).fill(0).map(() => <div className="Comparacion__icono"><Icon icon={iconoUsuario} /></div>)}
+          {Array(nConsumenMenos).fill(0).map((_, i) => (
+            <div
+              key={`icono-menos-por-cada-100-${i}`}
+              className="Comparacion__icono"
+            >
+              <Icon icon={iconoUsuario} />
+            </div>
+          ))}
         </div>
         <p className="Comparacion__bajada_personas"><span className="Comparacion__cifra">{nConsumenMenos} persona{nConsumenMenos !== 1 ? 's' : ''}</span> consume{nConsumenMenos !== 1 ? 'n' : ''}<br /> <strong className="Comparacion__texto_destacado">menos que usted</strong></p>
         <div className="Comparacion__usted"><Icon icon={iconoUsuario} /></div>
         <div />
         <div className="Comparacion__contenedor_iconos">
-          {Array(nConsumenMas).fill(0).map(() => <div className="Comparacion__icono"><Icon icon={iconoUsuario} /></div>)}
+          {Array(nConsumenMas).fill(0).map((_, i) => (
+            <div
+              key={`icono-mas-por-cada-100-${i}`}
+              className="Comparacion__icono"
+            >
+              <Icon icon={iconoUsuario} />
+            </div>
+          ))}
         </div>
         <p className="Comparacion__bajada_personas"><span className="Comparacion__cifra">{nConsumenMas} persona{nConsumenMas !== 1 ? 's' : ''}</span> consume{nConsumenMas !== 1 ? 'n' : ''}<br /> <strong className="Comparacion__texto_destacado">más que usted</strong></p>
       </div>

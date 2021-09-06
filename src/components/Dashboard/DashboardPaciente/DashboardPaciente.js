@@ -68,6 +68,7 @@ const DashboardPaciente = ({ idDirecto }) => {
               ref={textoLink}
               className="DashboardPaciente__link_para_compartir"
               value={`${window.location.origin}/d?k=${encodeURIComponent(kLinkDirecto)}`}
+              readOnly
             />
             <button
               className="DashboardPaciente__boton_copiar_link"

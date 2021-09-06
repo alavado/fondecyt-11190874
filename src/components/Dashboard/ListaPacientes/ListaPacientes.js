@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import { useQuery } from 'react-query'
 import iconoCerrarSesion from '@iconify-icons/mdi/logout'
 import { useDispatch, useSelector } from 'react-redux'
@@ -14,6 +14,7 @@ import { InlineIcon } from '@iconify/react'
 const ListaPacientes = () => {
 
   const { jwt } = useSelector(state => state.login)
+  const [busqueda, setBusqueda] = useState('')
   const { isLoading, data: dataPacientesAPI, isError } = useQuery('pacientes', pacientes(jwt))
   const dispatch = useDispatch()
   const history = useHistory()
@@ -75,7 +76,12 @@ const ListaPacientes = () => {
   return (
     <div className="ListaPacientes">
       <div className="ListaPacientes__encabezado">
-        <h1 className="ListaPacientes__titulo"><img src={logoColor} className="ListaPacientes__logo" alt="Logo TMB" /> Pacientes en estudio (estado = 8)</h1>
+        <h1 className="ListaPacientes__titulo"><img src={logoColor} className="ListaPacientes__logo" alt="Logo TMB" />Pacientes en estudio</h1>
+        <input
+          type="text"
+          value={busqueda}
+          onChange={e => setBusqueda(e.target.value)}
+        />
         <button
           onClick={() => dispatch(borraToken())}
           className="ListaPacientes__boton_cerrar_sesion"
