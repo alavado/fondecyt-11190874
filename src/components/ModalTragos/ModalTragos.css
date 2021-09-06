@@ -1,0 +1,87 @@
+.ModalTragos {
+  z-index: 2;
+  background-color: rgba(0, 0, 0, .5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ModalTragos__contenedor {
+  padding: 1rem;
+  background-color: var(--color-blanco);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-radius: .5rem;
+}
+
+.ModalTragos__titulo {
+  font-size: 1.15rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+.ModalTragos__tabla {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template: repeat(13, 1fr) / auto 1fr;
+  font-size: .75rem;
+  width: 40rem;
+}
+
+.ModalTragos__tipo_trago {
+  grid-row: span 4;
+  border-right: 1px solid var(--color-texto);
+  border-bottom: 1px solid var(--color-texto);
+  font-weight: bold;
+  text-orientation: sideways;
+  writing-mode: vertical-lr;
+  padding: .75rem;
+  text-align: center;
+  transform: scale(-1);
+}
+
+.ModalTragos__tipo_trago:nth-child(4) {
+  border-top: 1px solid var(--color-texto);
+}
+
+.ModalTragos__fila_trago {
+  display: flex;
+  align-items: center;
+  height: 3rem;
+  border-left: 1px solid var(--color-texto);
+  border-top: 1px solid var(--color-texto);
+  border-right: 1px solid var(--color-texto);
+}
+
+.ModalTragos__fila_trago:last-of-type {
+  border-bottom: 1px solid var(--color-texto);
+}
+
+.ModalTragos__imagen_trago {
+  width: auto;
+  height: 1.25rem;
+}
+
+.ModalTragos__fila_trago--encabezados {
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.25;
+}
+
+.ModalTragos__fila_trago > div {
+  flex: 1;
+  font-size: .7rem;
+  text-align: center;
+}
+
+.ModalTragos__tragos {
+  font-weight: bold;
+  letter-spacing: 1px;
+}

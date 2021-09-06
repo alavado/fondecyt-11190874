@@ -34,11 +34,11 @@ const Intoxicacion = ({ jwtSU, idDirecto }) => {
           <p className="Intoxicacion__cifra">{calificacionTolerancia(tolerancia)}</p>
         </div>
         <div className="Intoxicacion__contenedor_cifra">
-          <p>Su alcoholemia promedio<br />en un día de consumo es</p>
+          <p><span className="Consumo__texto_destacado">En un día típico</span><br />su alcoholemia fue</p>
           <p className="Intoxicacion__cifra">{Number(bac_media).toLocaleString('de-DE')} mg%</p>
         </div>
         <div className="Intoxicacion__contenedor_cifra">
-          <p>Su alcoholemia máxima<br />alcanzada en el periodo es</p>
+          <p><span className="Consumo__texto_destacado">La alcoholemia máxima</span><br />alcanzada en el periodo fue</p>
           <p className="Intoxicacion__cifra">{Number(bac_max).toLocaleString('de-DE')} mg%</p>
         </div>
       </div>

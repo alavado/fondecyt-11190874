@@ -115,3 +115,7 @@
   display: grid;
   grid-template: auto auto / 1fr 1fr;
 }
+
+.Consumo__link_modal_tragos {
+  cursor: help;
+}
