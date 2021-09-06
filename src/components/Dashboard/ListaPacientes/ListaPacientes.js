@@ -1,6 +1,8 @@
 import { useMemo, useState } from 'react'
 import { useQuery } from 'react-query'
 import iconoCerrarSesion from '@iconify-icons/mdi/logout'
+import iconoBusqueda from '@iconify-icons/mdi/search'
+import iconoLimpiarBusqueda from '@iconify-icons/mdi/close'
 import { useDispatch, useSelector } from 'react-redux'
 import logoColor from '../../../assets/TMB Color-02.svg'
 import { useTable } from 'react-table'
@@ -9,7 +11,10 @@ import { borraToken } from '../../../redux/ducks/login'
 import './ListaPacientes.css'
 import { differenceInYears, parse } from 'date-fns'
 import { useHistory } from 'react-router-dom'
-import { InlineIcon } from '@iconify/react'
+import { Icon, InlineIcon } from '@iconify/react'
+import classNames from 'classnames'
+
+const normalizar = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
 
 const ListaPacientes = () => {
 
@@ -35,8 +40,9 @@ const ListaPacientes = () => {
         estado: paciente.attributes.status,
         comentario: paciente.attributes.comentario
       }))
+      .filter(p => normalizar(p.nombre).indexOf(normalizar(busqueda)) >= 0)
     return data
-  }, [dataPacientesAPI])
+  }, [dataPacientesAPI, busqueda])
 
   const columns = useMemo(() => [
     {
@@ -77,11 +83,23 @@ const ListaPacientes = () => {
     <div className="ListaPacientes">
       <div className="ListaPacientes__encabezado">
         <h1 className="ListaPacientes__titulo"><img src={logoColor} className="ListaPacientes__logo" alt="Logo TMB" />Pacientes en estudio</h1>
-        <input
-          type="text"
-          value={busqueda}
-          onChange={e => setBusqueda(e.target.value)}
-        />
+        <div className="ListaPacientes__contenedor_busqueda">
+          <Icon
+            className={classNames({
+              "ListaPacientes__icono_busqueda": true,
+              "ListaPacientes__icono_busqueda--activo": busqueda !== ''
+            })}
+            icon={busqueda !== '' ? iconoLimpiarBusqueda : iconoBusqueda}
+            onClick={() => setBusqueda('')}
+          />
+          <input
+            type="text"
+            className="ListaPacientes__busqueda"
+            value={busqueda}
+            placeholder="Buscar paciente por nombre"
+            onChange={e => setBusqueda(e.target.value)}
+          />
+        </div>
         <button
           onClick={() => dispatch(borraToken())}
           className="ListaPacientes__boton_cerrar_sesion"
