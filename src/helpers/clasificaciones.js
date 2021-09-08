@@ -23,7 +23,7 @@ export const calificacionSustanciaAssist = (assist, letra) => {
 export const calificacionRiesgoFamiliar = indicador => {
   switch (+indicador) {
     case 0: return ['Riego bajo', 'Sin familiar']
-    case 1: return ['Riesgo medio', 'Familiar indirecto']
+    case 1: return ['Riesgo moderado', 'Familiar indirecto']
     default: return ['Riesgo alto', 'Familiar directo']
   }
 }
