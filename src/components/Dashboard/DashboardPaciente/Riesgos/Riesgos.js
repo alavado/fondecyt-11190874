@@ -3,7 +3,7 @@ import { useQuery } from 'react-query'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { antecedentes, assist, tlfb } from '../../../../helpers/api'
-import { calificacionRiesgoEdadInicio, calificacionRiesgoFamiliar, calificacionRiesgoPrimerProblema, calificacionSustanciaAssist } from '../../../../helpers/clasificaciones'
+import { calificacionRiesgoEdadInicio, calificacionRiesgoFamiliar, calificacionRiesgoPrimerProblema, calificacionSustanciaAssist, porcentajeRiesgoEdadInicio, porcentajeRiesgoFamiliar, porcentajeRiesgoPrimerProblema } from '../../../../helpers/clasificaciones'
 import './Riesgos.css'
 
 const Riesgos = ({ jwtSU, idDirecto }) => {
@@ -42,16 +42,32 @@ const Riesgos = ({ jwtSU, idDirecto }) => {
     {
       nombre: 'Riesgo familiar',
       riesgo: calificacionRiesgoFamiliar(datosAntecedentes.familiarquien)[0],
+      porcentaje: porcentajeRiesgoFamiliar(datosAntecedentes.familiarquien),
     },
     {
       nombre: 'Edad del primer consumo de alcohol',
       riesgo: calificacionRiesgoEdadInicio(datosAntecedentes.primeroh),
+      porcentaje: porcentajeRiesgoEdadInicio(datosAntecedentes.primeroh),
     },
     {
       nombre: 'Edad del primer problema con el alcohol',
       riesgo: calificacionRiesgoPrimerProblema(datosAntecedentes.primerprob),
+      porcentaje: porcentajeRiesgoPrimerProblema(datosAntecedentes.primerprob),
     },
   ]
+
+  const obtenerEmoji = riesgo => {
+    switch (riesgo) {
+      case 'Riesgo bajo':
+        return '🟢'
+      case 'Riesgo moderado':
+        return '🟡'
+      case 'Riesgo alto':
+        return '🟠'
+      default:
+        return '🔴'
+    }
+  }
 
   return (
     <div className="Riesgos">
@@ -60,16 +76,9 @@ const Riesgos = ({ jwtSU, idDirecto }) => {
         <table className="Riesgos__tabla_sustancias">
           <tbody>
             {sustancias.map(r => (
-              <tr
-                key={`fila-riesgo-${r.nombre}`}
-                className={classNames({
-                  'Riesgos__fila_tabla_sustancias--alto': r.riesgo === "Riesgo alto",
-                  'Riesgos__fila_tabla_sustancias--moderado': r.riesgo === "Riesgo moderado",
-                  'Riesgos__fila_tabla_sustancias--bajo': r.riesgo === "Riesgo bajo"
-                })}
-              >
+              <tr key={`fila-riesgo-${r.nombre}`}>
                 <td>{r.nombre}</td>
-                <td>{r.riesgo}</td>
+                <td>{obtenerEmoji(r.riesgo)} {r.riesgo}</td>
               </tr>
             ))}
           </tbody>
@@ -81,21 +90,16 @@ const Riesgos = ({ jwtSU, idDirecto }) => {
             key={`riesgo-${r.nombre}`}
             className="Riegos__contenedor_riesgo"
           >
-            <p className="Riesgos__subtitulo">
-              Riesgo familiar
-            </p>
-            <p className="Riesgos__etiqueta_riesgo">
-              {calificacionRiesgoFamiliar(datosAntecedentes.familiarquien)[0]}
-            </p>
-            <div
-              className={classNames({
-                'Riesgos__velocimetro': true,
-                'Riesgos__velocimetro--muy-alto': r.riesgo === "Riesgo muy alto",
-                'Riesgos__velocimetro--alto': r.riesgo === "Riesgo alto",
-                'Riesgos__velocimetro--moderado': r.riesgo === "Riesgo moderado",
-                'Riesgos__velocimetro--bajo': r.riesgo === "Riesgo bajo"
-              })}
-            />
+            <p className="Riesgos__subtitulo_importante">{r.nombre}</p>
+            <div className='Riesgos__velocimetro'>
+              <div
+                className="Riesgos__aguja"
+                style={{ '--porcentaje': r.porcentaje }}
+              />
+              <p className="Riesgos__etiqueta_riesgo">
+                {r.riesgo}
+              </p>
+            </div>
           </div>
         ))}
       </div>

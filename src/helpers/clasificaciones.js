@@ -28,6 +28,14 @@ export const calificacionRiesgoFamiliar = indicador => {
   }
 }
 
+export const porcentajeRiesgoFamiliar = indicador => {
+  switch (+indicador) {
+    case 0: return 10
+    case 1: return 50
+    default: return 80
+  }
+}
+
 export const calificacionRiesgoEdadInicio = edad => {
   if (edad < 14) {
     return 'Riesgo muy alto'
@@ -38,6 +46,16 @@ export const calificacionRiesgoEdadInicio = edad => {
   return 'Riesgo bajo'
 }
 
+export const porcentajeRiesgoEdadInicio = edad => {
+  if (edad < 14) {
+    return 95
+  }
+  if (edad < 18) {
+    return 80
+  }
+  return 10
+}
+
 export const calificacionRiesgoPrimerProblema = edad => {
   if (edad < 18) {
     return 'Riesgo muy alto'
@@ -46,4 +64,14 @@ export const calificacionRiesgoPrimerProblema = edad => {
     return 'Riesgo alto'
   }
   return 'Riesgo moderado'
+}
+
+export const porcentajeRiesgoPrimerProblema = edad => {
+  if (edad < 18) {
+    return 99
+  }
+  if (edad <= 35) {
+    return 80
+  }
+  return 40
 }
