@@ -11,6 +11,7 @@ import iconoVolver from '@iconify-icons/mdi/chevron-left'
 import { useEffect, useRef, useState } from 'react'
 import { login } from '../../../helpers/api'
 import Comparacion from './Comparacion'
+import PlanDeCambio from './PlanDeCambio'
 
 const DashboardPaciente = ({ idDirecto }) => {
 
@@ -110,6 +111,13 @@ const DashboardPaciente = ({ idDirecto }) => {
         >
           Riesgos
         </NavLink>
+        <NavLink
+          activeClassName="DashboardPaciente__link--activo"
+          className="DashboardPaciente__link"
+          to={id ? `/paciente/${id}/plandecambio` : '/d/plandecambio'}
+        >
+          Plan de cambio
+        </NavLink>
       </nav>
       <div className="DashboardPaciente__contenedor">
         <Switch>
@@ -125,6 +133,9 @@ const DashboardPaciente = ({ idDirecto }) => {
           <Route path={`/paciente/:id/riesgos`}>
             <Riesgos />
           </Route>
+          <Route path={`/paciente/:id/plandecambio`}>
+            <PlanDeCambio />
+          </Route>
           <Route path={`/d/consumo`}>
             <Consumo idDirecto={idDirecto} jwtSU={jwtSU} />
           </Route>
@@ -133,6 +144,9 @@ const DashboardPaciente = ({ idDirecto }) => {
           </Route>
           <Route path={`/d/riesgos`}>
             <Riesgos idDirecto={idDirecto} jwtSU={jwtSU} />
+          </Route>
+          <Route path={`/d/plandecambio`}>
+            <PlanDeCambio idDirecto={idDirecto} jwtSU={jwtSU} />
           </Route>
         </Switch>
       </div>

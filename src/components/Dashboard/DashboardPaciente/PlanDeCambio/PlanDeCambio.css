@@ -1,0 +1,29 @@
+.PlanDeCambio {
+  display: grid;
+  grid-template: repeat(10, auto) / 1fr 1fr;
+  gap: 1rem;
+  padding: 1rem;
+  font-size: .9rem;
+  font-style: italic;
+}
+
+.PlanDeCambio__tarjeta {
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+}
+
+.PlanDeCambio__tarjeta--ancha {
+  grid-column: span 2;
+}
+
+.PlanDeCambio__input {
+  padding: .5rem;
+  resize: none;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.PlanDeCambio__input:focus {
+  outline-color: var(--color-principal);
+}
