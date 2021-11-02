@@ -13,3 +13,7 @@
   border-radius: .25rem;
   outline: 1px solid var(--color-principal);
 }
+
+.PlanDeCambio__input--multi {
+  text-align: right;
+}
