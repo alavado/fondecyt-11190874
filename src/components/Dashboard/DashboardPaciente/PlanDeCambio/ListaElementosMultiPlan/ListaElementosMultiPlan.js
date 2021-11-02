@@ -4,7 +4,7 @@ import Icon, { InlineIcon } from '@iconify/react'
 import iconoFlecha from '@iconify-icons/mdi/arrow-right-bold'
 import './ListaElementosMultiPlan.css'
 
-const ListaElementosMultiPlan = ({ propiedades, titulos, tituloSuperior, textoBoton, elementos, agregar, editar, eliminar }) => {
+const ListaElementosMultiPlan = ({ propiedades, titulos, tituloSuperior, textoBoton, elementos, agregar, editar, eliminar, editable }) => {
 
   const [propiedadIzq, propiedadDer] = propiedades
   const [tituloIzq, tituloDer] = titulos
@@ -52,7 +52,7 @@ const ListaElementosMultiPlan = ({ propiedades, titulos, tituloSuperior, textoBo
           </li>
         ))}
       </ol>
-      {elementos.length < 5 && (
+      {editable && elementos.length < 5 && (
         <button
           className="PlanDeCambio__boton_agregar"
           onClick={() => {

@@ -16,18 +16,30 @@ const PlanDeCambio = ({ jwtSU, idDirecto }) => {
 
   const { jwt } = useSelector(state => state.login)
   const { id } = useParams()
-  const { isLoading, data } = useQuery('planDeCambio', obtenerPlanDeCambio(jwtSU || jwt, idDirecto || id), { refetchOnWindowFocus: false })
+  const { isLoading, data } = useQuery(`planDeCambio-${id}`, obtenerPlanDeCambio(jwtSU || jwt, idDirecto || id), { refetchOnWindowFocus: false })
   const [plan, setPlan] = useState()
 
-  const actualizarPlanDeCambioEnServidor = useMemo(() => _.debounce((jwt, idPaciente, plan) => actualizarPlanDeCambio(jwt, idPaciente, plan.id, formatearPlan(plan))(), 2_000), [])
+  const actualizarPlanDeCambioEnServidor = useMemo(() => _.debounce(async (jwt, idPaciente, plan) => {
+    if (!plan.id) {
+      console.log('agregando')
+      const { data } = agregarPlanDeCambio(jwt, idPaciente, formatearPlan(plan))()
+      console.log(data)
+      setPlan(plan => ({ ...plan, id: data.data.id }))
+    }
+    return actualizarPlanDeCambio(jwt, idPaciente, plan.id, formatearPlan(plan))()
+  }, 2_000), [])
 
   useEffect(() => {
-    setPlan(planAJSON(data))
+    const planJSON = planAJSON(data)
+    setPlan(planJSON)
   }, [data])
 
   if (isLoading || !plan) return <div>Cargando...</div>
 
   const cambiarValorDeElementoEnPropiedad = (tipo, indice, valor) => {
+    if (jwtSU) {
+      return
+    }
     setPlan(plan => {
       const nuevoPlan = {
         ...plan,
@@ -39,6 +51,9 @@ const PlanDeCambio = ({ jwtSU, idDirecto }) => {
   }
 
   const agregarElementoVacioAPropiedad = tipo => {
+    if (jwtSU) {
+      return
+    }
     setPlan(plan => {
       const nuevoPlan = {
         ...plan,
@@ -50,6 +65,9 @@ const PlanDeCambio = ({ jwtSU, idDirecto }) => {
   }
 
   const eliminarElementoDePropiedad = (tipo, indice) => {
+    if (jwtSU) {
+      return
+    }
     setPlan(plan => {
       const nuevoPlan = {
         ...plan,
@@ -59,7 +77,6 @@ const PlanDeCambio = ({ jwtSU, idDirecto }) => {
       return nuevoPlan
     })
   }
-  console.log(plan)
 
   return (
     <div className="PlanDeCambio">
@@ -69,6 +86,7 @@ const PlanDeCambio = ({ jwtSU, idDirecto }) => {
         propiedad="razones"
         titulo="Las razones más importantes por las que quiero hacer estos cambios son"
         textoBoton="Agregar razón"
+        editable={!jwtSU}
         agregar={agregarElementoVacioAPropiedad}
         editar={cambiarValorDeElementoEnPropiedad}
         eliminar={eliminarElementoDePropiedad}
@@ -78,6 +96,7 @@ const PlanDeCambio = ({ jwtSU, idDirecto }) => {
         propiedad="metas"
         titulo="Mis metas durante este proceso de cambio son"
         textoBoton="Agregar meta"
+        editable={!jwtSU}
         agregar={agregarElementoVacioAPropiedad}
         editar={cambiarValorDeElementoEnPropiedad}
         eliminar={eliminarElementoDePropiedad}
@@ -88,6 +107,7 @@ const PlanDeCambio = ({ jwtSU, idDirecto }) => {
         titulos={['¿Cuándo?', 'Acción específica']}
         tituloSuperior="Puedo hacer estas cosas para cumplir mis metas"
         textoBoton="Agregar acción"
+        editable={!jwtSU}
         agregar={agregarElementoVacioAPropiedad}
         editar={cambiarValorDeElementoEnPropiedad}
         eliminar={eliminarElementoDePropiedad}
@@ -97,6 +117,7 @@ const PlanDeCambio = ({ jwtSU, idDirecto }) => {
         propiedad="pasos"
         titulo="Los primeros pasos que planeo para cambiar son"
         textoBoton="Agregar paso"
+        editable={!jwtSU}
         agregar={agregarElementoVacioAPropiedad}
         editar={cambiarValorDeElementoEnPropiedad}
         eliminar={eliminarElementoDePropiedad}
@@ -107,6 +128,7 @@ const PlanDeCambio = ({ jwtSU, idDirecto }) => {
         titulos={['Persona', 'Modos en que puede ayudarme']}
         tituloSuperior="Las formas en que otras personas pueden ayudarme son"
         textoBoton="Agregar persona"
+        editable={!jwtSU}
         agregar={agregarElementoVacioAPropiedad}
         editar={cambiarValorDeElementoEnPropiedad}
         eliminar={eliminarElementoDePropiedad}
@@ -117,6 +139,7 @@ const PlanDeCambio = ({ jwtSU, idDirecto }) => {
         titulos={['Obstáculo posible', 'Cómo responder']}
         tituloSuperior="Algunas cosas que podrían interferir con mi plan son"
         textoBoton="Agregar obstáculo"
+        editable={!jwtSU}
         agregar={agregarElementoVacioAPropiedad}
         editar={cambiarValorDeElementoEnPropiedad}
         eliminar={eliminarElementoDePropiedad}
@@ -126,6 +149,7 @@ const PlanDeCambio = ({ jwtSU, idDirecto }) => {
         propiedad="resultados"
         titulo="Sabré que mi plan está funcionando si veo estos resultados"
         textoBoton="Agregar resultado"
+        editable={!jwtSU}
         agregar={agregarElementoVacioAPropiedad}
         editar={cambiarValorDeElementoEnPropiedad}
         eliminar={eliminarElementoDePropiedad}

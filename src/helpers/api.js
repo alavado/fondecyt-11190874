@@ -117,7 +117,6 @@ export const agregarPlanDeCambio = (jwt, id, datos) => () => {
 
 export const actualizarPlanDeCambio = (jwt, idPaciente, idPlan, datos) => () => {
   const url = `${apiRoot}/patients/${idPaciente}/plans/${idPlan}`
-  console.log({jwt, idPaciente, idPlan, datos})
   return axios.patch(
     url,
     JSON.stringify(datos),

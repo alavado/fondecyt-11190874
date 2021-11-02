@@ -3,7 +3,7 @@ import iconoEliminar from '@iconify-icons/mdi/close'
 import { InlineIcon } from '@iconify/react'
 import './ListaElementosPlan.css'
 
-const ListaElementosPlan = ({ propiedad, titulo, textoBoton, elementos, agregar, editar, eliminar }) => {
+const ListaElementosPlan = ({ propiedad, titulo, textoBoton, elementos, agregar, editar, eliminar, editable }) => {
 
   return (
     <div className="PlanDeCambio__tarjeta PlanDeCambio__tarjeta--ancha">
@@ -29,7 +29,7 @@ const ListaElementosPlan = ({ propiedad, titulo, textoBoton, elementos, agregar,
           </li>
         ))}
       </ol>
-      {elementos.length < 5 && (
+      {editable && elementos.length < 5 && (
         <button
           className="PlanDeCambio__boton_agregar"
           onClick={() => agregar(propiedad)}

@@ -1,5 +1,6 @@
-falta hacer 3 cosas
-- agregar fechas al titulo
-- agregar buscador a tabla de pacientes
-- mejorar diseño de riesgos
-- para el triangulo: funcion del area, no de la altura
+Bienvenido, pero todavía no documentamos, lo siento.
+
+Algún día lo haremos probablemente.
+
+Al menos eso creo.
+

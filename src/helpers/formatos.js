@@ -11,6 +11,22 @@ export const planAJSON = data => {
   }
 
   const planes = data.data.data
+
+  if (planes.length === 0) {
+    return {
+      razones: [],
+      metas: [],
+      pasos: [],
+      resultados: [],
+      acciones: [],
+      cuandos: [],
+      personas: [],
+      modos: [],
+      obstaculos: [],
+      comos: [],
+    }
+  }
+
   const ultimoPlan = planes[planes.length - 1]
 
   return {
@@ -19,8 +35,6 @@ export const planAJSON = data => {
     metas: atributosPlan(ultimoPlan, 'meta'),
     pasos: atributosPlan(ultimoPlan, 'paso'),
     resultados: atributosPlan(ultimoPlan, 'resultado'),
-
-    // multis
     acciones: atributosPlan(ultimoPlan, 'accion'),
     cuandos: atributosPlan(ultimoPlan, 'cuando'),
     personas: atributosPlan(ultimoPlan, 'persona'),

@@ -33,7 +33,6 @@ const DashboardPaciente = ({ idDirecto }) => {
       login(process.env.REACT_APP_USER, process.env.REACT_APP_PASSWORD)
         .then(res => {
           const { authorization: token } = res.headers
-          console.log(token)
           setJwtSU(token)
         })
     }
