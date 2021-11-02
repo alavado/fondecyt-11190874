@@ -12,7 +12,7 @@ const ListaElementosMultiPlan = ({ propiedades, titulos, tituloSuperior, textoBo
 
   return (
     <div className="PlanDeCambio__tarjeta PlanDeCambio__tarjeta--ancha">
-      <h3>{tituloSuperior}</h3>
+      <h3 className="PlanDeCambio__titulo_superior">{tituloSuperior}</h3>
       <div className="ListaElementosMultiPlan__titulo_lista">
         <div className="PlanDeCambio__elemento_lista_contenido">
           <h3>{tituloIzq}</h3>
@@ -29,7 +29,10 @@ const ListaElementosMultiPlan = ({ propiedades, titulos, tituloSuperior, textoBo
             <button
               className="PlanDeCambio__boton_eliminar"
               title="Eliminar este elemento"
-              onClick={() => eliminar(propiedadIzq, i)}
+              onClick={() => {
+                eliminar(propiedadIzq, i)
+                eliminar(propiedadDer, i)
+              }}
             >
               <InlineIcon icon={iconoEliminar} />
             </button>
@@ -52,7 +55,10 @@ const ListaElementosMultiPlan = ({ propiedades, titulos, tituloSuperior, textoBo
       {elementos.length < 5 && (
         <button
           className="PlanDeCambio__boton_agregar"
-          onClick={() => agregar(propiedadIzq)}
+          onClick={() => {
+            agregar(propiedadIzq)
+            agregar(propiedadDer)
+          }}
         >
           <InlineIcon icon={iconoAgregar} /> {textoBoton}
         </button>

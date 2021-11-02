@@ -7,7 +7,7 @@ const ListaElementosPlan = ({ propiedad, titulo, textoBoton, elementos, agregar,
 
   return (
     <div className="PlanDeCambio__tarjeta PlanDeCambio__tarjeta--ancha">
-      <label>{titulo}</label>
+      <h3 className="PlanDeCambio__titulo_superior">{titulo}</h3>
       <ol className="PlanDeCambio__lista">
         {elementos.map((p, i) => (
           <li

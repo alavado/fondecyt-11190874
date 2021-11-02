@@ -6,7 +6,8 @@
 
 .ListaElementosMultiPlan__titulo_lista {
   display: flex;
-  margin-left: 1rem;
+  width: 100%;
+  text-align: center;
 }
 
 .PlanDeCambio__elemento_lista_contenido--multi {

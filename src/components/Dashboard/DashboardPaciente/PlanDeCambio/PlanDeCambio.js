@@ -23,7 +23,6 @@ const PlanDeCambio = ({ jwtSU, idDirecto }) => {
 
   useEffect(() => {
     setPlan(planAJSON(data))
-    console.log(planAJSON(data))
   }, [data])
 
   if (isLoading || !plan) return <div>Cargando...</div>

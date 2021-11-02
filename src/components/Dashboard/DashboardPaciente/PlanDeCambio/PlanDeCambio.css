@@ -1,7 +1,7 @@
 .PlanDeCambio {
   display: grid;
   grid-template: repeat(10, auto) / 1fr 1fr;
-  gap: 1rem;
+  gap: 3rem;
   padding: 1rem;
   font-size: .9rem;
   font-style: italic;
@@ -13,11 +13,21 @@
   font-weight: bold;
   font-size: 1.5rem;
   margin-bottom: .75rem;
+  text-align: center;
+  grid-column: span 2;
+}
+
+.PlanDeCambio__titulo_superior {
+  text-align: center;
+  color: var(--color-texto);
+  margin-bottom: .5rem;
+  font-size: 1rem;
 }
 
 .PlanDeCambio__tarjeta {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: .25rem;
 }
 
@@ -27,7 +37,6 @@
 
 .PlanDeCambio__lista {
   list-style-type: decimal;
-  margin-left: 2rem;
   display: flex;
   flex-direction: column;
   gap: .35rem;
@@ -41,15 +50,32 @@
   display: flex;
   gap: .5rem;
   align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.PlanDeCambio__elemento_lista_contenido > *:first-child {
+  text-align: right;
+  min-width: 30ch;
+  flex: 1;
+}
+
+.PlanDeCambio__elemento_lista_contenido > *:last-child {
+  text-align: left;
+  min-width: 30ch;
+  flex: 1;
 }
 
 .PlanDeCambio__input {
   padding: .5rem;
+  overflow: visible;
   resize: none;
   font-weight: bold;
   font-size: 1rem;
   width: 100%;
   border: none;
+  text-align: center;
+  min-width: 40ch;
 }
 
 .PlanDeCambio__input:focus {
