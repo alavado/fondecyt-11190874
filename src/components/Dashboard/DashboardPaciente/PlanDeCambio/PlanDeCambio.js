@@ -19,13 +19,13 @@ const PlanDeCambio = ({ jwtSU, idDirecto }) => {
   const { isLoading, data } = useQuery(`planDeCambio-${id}`, obtenerPlanDeCambio(jwtSU || jwt, idDirecto || id), { refetchOnWindowFocus: false })
   const [plan, setPlan] = useState()
 
-  const actualizarPlanDeCambioEnServidor = useMemo(() => _.debounce(async (jwt, idPaciente, plan) => {
+  const actualizarPlanDeCambioEnServidor = useMemo((ahora = false) => _.debounce(async (jwt, idPaciente, plan) => {
     if (!plan.id) {
       const { data } = await agregarPlanDeCambio(jwt, idPaciente, formatearPlan(plan))()
       setPlan(plan => ({ ...plan, id: data.data.id }))
     }
     return actualizarPlanDeCambio(jwt, idPaciente, plan.id, formatearPlan(plan))()
-  }, 2_000), [])
+  }, 1_000, { leading: ahora }), [])
 
   useEffect(() => {
     const planJSON = planAJSON(data)
@@ -79,6 +79,14 @@ const PlanDeCambio = ({ jwtSU, idDirecto }) => {
   return (
     <div className="PlanDeCambio">
       <h1>Plan de Cambio</h1>
+      {/* {!jwtSU &&
+        <button
+          className="PlanDeCambio__boton_guardar"
+          onClick={() => actualizarPlanDeCambioEnServidor(jwt, id, plan)}
+        >
+          Guardar
+        </button>
+      } */}
       <ListaElementosPlan
         elementos={plan.razones}
         propiedad="razones"
