@@ -8,6 +8,13 @@
   padding-bottom: 5rem;
 }
 
+.PlanDeCambio h1 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-bottom: .75rem;
+}
+
 .PlanDeCambio__tarjeta {
   display: flex;
   flex-direction: column;
@@ -23,7 +30,7 @@
   margin-left: 2rem;
   display: flex;
   flex-direction: column;
-  gap: .25rem;
+  gap: .35rem;
 }
 
 .PlanDeCambio__elemento_lista {
@@ -46,7 +53,8 @@
 }
 
 .PlanDeCambio__input:focus {
-  outline-color: var(--color-principal);
+  outline: none;
+  background-color: var(--color-cursor);
 }
 
 .PlanDeCambio__boton_eliminar {
@@ -55,7 +63,7 @@
   background: none;
   cursor: pointer;
   left: -2.25rem;
-  top: .75rem;
+  top: calc(50% - .5rem);
   opacity: 0;
   transition: all .15s ease;
   color: var(--color-principal);

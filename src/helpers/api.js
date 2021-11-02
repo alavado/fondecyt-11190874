@@ -88,3 +88,44 @@ export const tlfb = (jwt, id) => () => {
     }
   )
 }
+
+export const obtenerPlanDeCambio = (jwt, id) => () => {
+  const url = `${apiRoot}/patients/${id}/plans`
+  return axios.get(
+    url,
+    {
+      headers: {
+        'Authorization': jwt
+      }
+    }
+  )
+}
+
+export const agregarPlanDeCambio = (jwt, id, datos) => () => {
+  const url = `${apiRoot}/patients/${id}/plans`
+  return axios.post(
+    url,
+    JSON.stringify(datos),
+    {
+      headers: {
+        'Authorization': jwt,
+        'Content-Type': 'application/json'
+      }
+    }
+  )
+}
+
+export const actualizarPlanDeCambio = (jwt, idPaciente, idPlan, datos) => () => {
+  const url = `${apiRoot}/patients/${idPaciente}/plans/${idPlan}`
+  console.log({jwt, idPaciente, idPlan, datos})
+  return axios.patch(
+    url,
+    JSON.stringify(datos),
+    {
+      headers: {
+        'Authorization': jwt,
+        'Content-Type': 'application/json'
+      }
+    }
+  )
+}

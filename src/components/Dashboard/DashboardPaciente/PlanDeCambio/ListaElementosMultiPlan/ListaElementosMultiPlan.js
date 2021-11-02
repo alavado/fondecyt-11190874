@@ -33,7 +33,7 @@ const ListaElementosMultiPlan = ({ propiedades, titulos, tituloSuperior, textoBo
             >
               <InlineIcon icon={iconoEliminar} />
             </button>
-            <div className="PlanDeCambio__elemento_lista_contenido">
+            <div className="PlanDeCambio__elemento_lista_contenido PlanDeCambio__elemento_lista_contenido--multi">
               <input
                 className="PlanDeCambio__input"
                 onChange={e => editar(propiedadIzq, i, e.target.value)}

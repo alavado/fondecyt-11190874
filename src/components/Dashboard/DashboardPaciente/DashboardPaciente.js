@@ -116,7 +116,7 @@ const DashboardPaciente = ({ idDirecto }) => {
           className="DashboardPaciente__link"
           to={id ? `/paciente/${id}/plandecambio` : '/d/plandecambio'}
         >
-          Plan de cambio
+          Plan de Cambio
         </NavLink>
       </nav>
       <div className="DashboardPaciente__contenedor">
