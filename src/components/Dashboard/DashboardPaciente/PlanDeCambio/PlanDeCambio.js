@@ -21,9 +21,7 @@ const PlanDeCambio = ({ jwtSU, idDirecto }) => {
 
   const actualizarPlanDeCambioEnServidor = useMemo(() => _.debounce(async (jwt, idPaciente, plan) => {
     if (!plan.id) {
-      console.log('agregando')
-      const { data } = agregarPlanDeCambio(jwt, idPaciente, formatearPlan(plan))()
-      console.log(data)
+      const { data } = await agregarPlanDeCambio(jwt, idPaciente, formatearPlan(plan))()
       setPlan(plan => ({ ...plan, id: data.data.id }))
     }
     return actualizarPlanDeCambio(jwt, idPaciente, plan.id, formatearPlan(plan))()
