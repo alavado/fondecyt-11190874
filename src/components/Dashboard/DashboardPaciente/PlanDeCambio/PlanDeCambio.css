@@ -30,6 +30,12 @@
   position: relative;
 }
 
+.PlanDeCambio__elemento_lista_contenido {
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+}
+
 .PlanDeCambio__input {
   padding: .5rem;
   resize: none;
@@ -67,4 +73,5 @@
   cursor: pointer;
   width: fit-content;
   padding: 1rem;
+  font-weight: 500;
 }

@@ -1,0 +1,10 @@
+.ListaElementosMultiPlan__icono_flecha {
+  font-size: 2.5rem;
+  color: var(--color-principal);
+  min-width: 2.5rem;
+}
+
+.ListaElementosMultiPlan__titulo_lista {
+  display: flex;
+  margin-left: 1rem;
+}

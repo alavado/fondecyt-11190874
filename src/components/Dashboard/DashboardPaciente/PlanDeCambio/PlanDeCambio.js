@@ -4,22 +4,23 @@ import iconoEliminar from '@iconify-icons/mdi/close'
 import './PlanDeCambio.css'
 import { InlineIcon } from '@iconify/react'
 import ListaElementosPlan from './ListaElementosPlan'
+import ListaElementosMultiPlan from './ListaElementosMultiPlan'
 
 const PlanDeCambio = ({ jwtSU, idDirecto }) => {
 
   const [plan, setPlan] = useState({
-    razones: [''],
-    metas: [''],
-    pasos: [''],
-    resultados: [''],
+    razones: [],
+    metas: [],
+    pasos: [],
+    resultados: [],
 
     // multis
-    acciones: [''],
-    cuandos: [''],
-    personas: [''],
-    modos: [''],
-    obstaculos: [''],
-    comos: [''],
+    acciones: [],
+    cuandos: [],
+    personas: [],
+    modos: [],
+    obstaculos: [],
+    comos: [],
   })
 
   const cambiarValorDeElementoEnPropiedad = (tipo, indice, valor) => {
@@ -63,15 +64,16 @@ const PlanDeCambio = ({ jwtSU, idDirecto }) => {
         editar={cambiarValorDeElementoEnPropiedad}
         eliminar={eliminarElementoDePropiedad}
       />
-      <p className="PlanDeCambio__tarjeta--ancha">Puedo hacer estas cosas para cumplir mis metas</p>
-      <div className="PlanDeCambio__tarjeta">
-        <label>¿Cuándo?</label>
-        <textarea className="PlanDeCambio__input"></textarea>
-      </div>
-      <div className="PlanDeCambio__tarjeta">
-        <label>Acción específica</label>
-        <textarea className="PlanDeCambio__input"></textarea>
-      </div>
+      <ListaElementosMultiPlan
+        elementos={[plan.cuandos, plan.acciones]}
+        propiedades={['cuandos', 'acciones']}
+        titulos={['¿Cuándo?', 'Acción específica']}
+        tituloSuperior="Puedo hacer estas cosas para cumplir mis metas"
+        textoBoton="Agregar acción"
+        agregar={agregarElementoVacioAPropiedad}
+        editar={cambiarValorDeElementoEnPropiedad}
+        eliminar={eliminarElementoDePropiedad}
+      />
       <ListaElementosPlan
         elementos={plan.pasos}
         propiedad="pasos"
@@ -81,24 +83,26 @@ const PlanDeCambio = ({ jwtSU, idDirecto }) => {
         editar={cambiarValorDeElementoEnPropiedad}
         eliminar={eliminarElementoDePropiedad}
       />
-      <p className="PlanDeCambio__tarjeta--ancha">Las formas en que otras personas pueden ayudarme son</p>
-      <div className="PlanDeCambio__tarjeta">
-        <label>Persona</label>
-        <textarea className="PlanDeCambio__input"></textarea>
-      </div>
-      <div className="PlanDeCambio__tarjeta">
-        <label>Modos posibles en que puede ayudarme</label>
-        <textarea className="PlanDeCambio__input"></textarea>
-      </div>
-      <p className="PlanDeCambio__tarjeta--ancha">Algunas cosas que podrían interferir con mi plan son</p>
-      <div className="PlanDeCambio__tarjeta">
-        <label>Obstáculos posibles para el cambio</label>
-        <textarea className="PlanDeCambio__input"></textarea>
-      </div>
-      <div className="PlanDeCambio__tarjeta">
-        <label>Cómo responder</label>
-        <textarea className="PlanDeCambio__input"></textarea>
-      </div>
+      <ListaElementosMultiPlan
+        elementos={[plan.personas, plan.modos]}
+        propiedades={['personas', 'modos']}
+        titulos={['Persona', 'Modos en que puede ayudarme']}
+        tituloSuperior="Las formas en que otras personas pueden ayudarme son"
+        textoBoton="Agregar persona"
+        agregar={agregarElementoVacioAPropiedad}
+        editar={cambiarValorDeElementoEnPropiedad}
+        eliminar={eliminarElementoDePropiedad}
+      />
+      <ListaElementosMultiPlan
+        elementos={[plan.obstaculos, plan.comos]}
+        propiedades={['obstaculos', 'comos']}
+        titulos={['Obstáculo posible', 'Cómo responder']}
+        tituloSuperior="Algunas cosas que podrían interferir con mi plan son"
+        textoBoton="Agregar obstáculo"
+        agregar={agregarElementoVacioAPropiedad}
+        editar={cambiarValorDeElementoEnPropiedad}
+        eliminar={eliminarElementoDePropiedad}
+      />
       <ListaElementosPlan
         elementos={plan.resultados}
         propiedad="resultados"

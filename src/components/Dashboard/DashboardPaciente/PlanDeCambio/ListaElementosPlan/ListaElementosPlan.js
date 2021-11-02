@@ -1,9 +1,19 @@
 import iconoAgregar from '@iconify-icons/mdi/add'
 import iconoEliminar from '@iconify-icons/mdi/close'
 import { InlineIcon } from '@iconify/react'
+import { useEffect, useRef } from 'react'
 import './ListaElementosPlan.css'
 
 const ListaElementosPlan = ({ propiedad, titulo, textoBoton, elementos, agregar, editar, eliminar }) => {
+
+  const refs = Array(5).fill(useRef())
+
+  useEffect(() => {
+    if (elementos.length > 0) {
+      refs[elementos.length - 1].current?.focus()
+    }
+  }, [elementos])
+
   return (
     <div className="PlanDeCambio__tarjeta PlanDeCambio__tarjeta--ancha">
       <label>{titulo}</label>
@@ -24,6 +34,7 @@ const ListaElementosPlan = ({ propiedad, titulo, textoBoton, elementos, agregar,
               className="PlanDeCambio__input"
               onChange={e => editar(propiedad, i, e.target.value)}
               value={p}
+              ref={refs[i]}
             />
           </li>
         ))}
