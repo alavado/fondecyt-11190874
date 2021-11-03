@@ -138,6 +138,9 @@ const DashboardPaciente = ({ idDirecto }) => {
           <Route path={`/d/consumo`}>
             <Consumo idDirecto={idDirecto} jwtSU={jwtSU} />
           </Route>
+          <Route path={`/d/comparacion`}>
+            <Comparacion idDirecto={idDirecto} jwtSU={jwtSU} />
+          </Route>
           <Route path={`/d/intoxicacion`}>
             <Intoxicacion idDirecto={idDirecto} jwtSU={jwtSU} />
           </Route>
