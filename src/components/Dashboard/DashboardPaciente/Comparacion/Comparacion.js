@@ -4,15 +4,16 @@ import { useParams } from 'react-router-dom'
 import iconoUsuario from '@iconify-icons/mdi/human-male'
 import './Comparacion.css'
 import Icon from '@iconify/react'
-import { tlfb } from '../../../../helpers/api'
+import { audit, tlfb } from '../../../../helpers/api'
 
 const Comparacion = ({ jwtSU, idDirecto }) => {
 
   const { jwt } = useSelector(state => state.login)
   const { id } = useParams()
   const { isLoading, data } = useQuery('tlfb', tlfb(jwtSU || jwt, idDirecto || id))
+  const { isLoading: loadingAudit, data: dataAudit } = useQuery('audit', audit(jwtSU || jwt, idDirecto || id))
 
-  if (isLoading) {
+  if (isLoading || loadingAudit) {
     return 'Cargando...'
   }
 
@@ -24,6 +25,9 @@ const Comparacion = ({ jwtSU, idDirecto }) => {
 
   const nConsumenMenos = +percentil
   const nConsumenMas = 100 - +percentil
+
+  const itemsAudit = Object.keys(dataAudit.data.data.attributes)
+  const puntajeAudit = itemsAudit.reduce((sum, item) => sum + dataAudit.data.data.attributes[item], 0)
 
   return (
     <div className="Comparacion">
@@ -40,14 +44,14 @@ const Comparacion = ({ jwtSU, idDirecto }) => {
           <div
             className="Comparacion__linea_consumo_piramide"
             style={{
-              top: `calc(-1rem + ${nConsumenMas}%)`
+              top: `calc(-.75rem + ${Math.max(0, 16 - puntajeAudit) * (100 / 16)}%)`
             }}
           >
             Su consumo
           </div>
-          <div className="Comparacion__etiqueta_piramide_1">Posible consumo problema o dependencia (2%)</div>
-          <div className="Comparacion__etiqueta_piramide_2">Consumo de riesgo (11%)</div>
-          <div className="Comparacion__etiqueta_piramide_3">Consumo de bajo riesgo (87%)</div>
+          <div className="Comparacion__etiqueta_piramide_1">Posible consumo problemático o dependencia (AUDIT 16+)</div>
+          <div className="Comparacion__etiqueta_piramide_2">Consumo de riesgo (AUDIT entre 8 y 15)</div>
+          <div className="Comparacion__etiqueta_piramide_3">Consumo de bajo riesgo (AUDIT &lt; 8)</div>
         </div>
       </div>
       <p className="Comparacion__encabezado">En Chile, por cada 100 personas<br />de su misma edad y sexo</p>
